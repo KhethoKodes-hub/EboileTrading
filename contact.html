@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eboile Trading • Contact Us</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --g1: #00ff87;
+      --g2: #00c4a7;
+      --dark: #030d07;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--dark);
+      color: #e0ffe8;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 { font-family: 'Bebas Neue', sans-serif; }
+
+    /* noise */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 9999; opacity: 0.35;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      padding: 1.4rem 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: linear-gradient(180deg, rgba(3,13,7,0.92) 0%, transparent 100%);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(0,255,135,0.08);
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.08em;
+      background: linear-gradient(90deg, #c8ffde, #00ff87);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(200,255,220,0.7); text-decoration: none; position: relative; transition: color 0.3s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: linear-gradient(90deg, var(--g1), var(--g2));
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--g1); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-cta {
+      font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.65rem 1.8rem; border-radius: 100px;
+      border: 1px solid rgba(0,255,135,0.5); color: var(--g1);
+      text-decoration: none; background: rgba(0,255,135,0.06);
+      backdrop-filter: blur(10px); transition: all 0.3s ease;
+    }
+    .nav-cta:hover { background: rgba(0,255,135,0.18); border-color: var(--g1); box-shadow: 0 0 30px rgba(0,255,135,0.25); transform: translateY(-1px); }
+    .mob-menu-btn { display: none; background: none; border: none; cursor: pointer; color: var(--g1); font-size: 1.4rem; }
+
+    /* ── HERO ── */
+    .contact-hero {
+      position: relative; height: 70vh; min-height: 560px;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    .contact-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1605001011156-cbf0b0f67a51?q=80&w=2069&auto=format&fit=crop');
+      background-size: cover; background-position: center;
+      filter: brightness(0.28) saturate(1.3);
+      transform: scale(1.06); transition: transform 8s ease;
+    }
+    .contact-hero:hover .contact-hero-bg { transform: scale(1.0); }
+    .contact-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(3,13,7,0.96) 0%, rgba(3,13,7,0.35) 55%, rgba(3,13,7,0.9) 100%);
+    }
+    .hero-vein {
+      position: absolute; top: -20%; left: 60%; width: 2px; height: 140%;
+      background: linear-gradient(180deg, transparent, rgba(0,255,135,0.2) 40%, rgba(0,196,167,0.1) 70%, transparent);
+      transform: rotate(-10deg); filter: blur(4px);
+      animation: veinPulse 4s ease-in-out infinite;
+    }
+    @keyframes veinPulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+
+    .hero-content { position: relative; z-index: 10; text-align: center; padding: 0 2rem; max-width: 900px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.8rem;
+      font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.35em; text-transform: uppercase; color: var(--g1);
+      padding: 0.5rem 1.4rem; border: 1px solid rgba(0,255,135,0.3); border-radius: 100px;
+      background: rgba(0,255,135,0.07); backdrop-filter: blur(10px); margin-bottom: 2rem;
+      animation: fadeUp 0.8s ease both;
+    }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--g1); box-shadow: 0 0 10px var(--g1); animation: blink 2s ease infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .hero-content h1 {
+      font-size: clamp(4.5rem, 11vw, 11rem); line-height: 0.9; letter-spacing: -0.01em;
+      background: linear-gradient(145deg, #ffffff 0%, #d0ffea 40%, var(--g1) 80%, var(--g2) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 60px rgba(0,255,135,0.12));
+      animation: fadeUp 0.9s 0.1s ease both;
+    }
+    .hero-sub {
+      font-size: clamp(0.95rem, 1.8vw, 1.2rem); font-weight: 300; font-style: italic;
+      color: rgba(200,255,220,0.6); letter-spacing: 0.04em; margin-top: 1.5rem;
+      animation: fadeUp 1s 0.2s ease both;
+    }
+    .hero-badges {
+      display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin-top: 2.5rem;
+      animation: fadeUp 1s 0.3s ease both;
+    }
+    .hero-badge {
+      font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.5rem 1.2rem; border-radius: 100px;
+      border: 1px solid rgba(0,255,135,0.18); background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px); color: rgba(200,255,220,0.6);
+      display: flex; align-items: center; gap: 0.5rem; transition: all 0.3s;
+    }
+    .hero-badge:hover { border-color: var(--g1); color: var(--g1); background: rgba(0,255,135,0.1); transform: translateY(-2px); }
+    .hero-badge i { font-size: 0.72rem; color: var(--g1); }
+
+    .scroll-cue {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.6rem; z-index: 10;
+      animation: fadeUp 1s 0.8s ease both;
+    }
+    .scroll-cue span { font-family: 'Syne', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(0,255,135,0.5); }
+    .scroll-line { width: 1px; height: 50px; background: linear-gradient(180deg, rgba(0,255,135,0.6), transparent); animation: scrollDrop 2s ease infinite; }
+    @keyframes scrollDrop { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform:scaleY(1);transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+    /* ── MAIN CONTACT SECTION ── */
+    .contact-section {
+      padding: 7rem 0; position: relative;
+      background: linear-gradient(160deg, #041209 0%, #071510 60%, #041209 100%);
+    }
+    .contact-bg-wash {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1586528116311-8431f2c72e6a?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover; background-position: center;
+      filter: brightness(0.05) grayscale(1);
+    }
+    .grid-pattern {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(0,255,135,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,135,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .contact-inner {
+      position: relative; z-index: 2;
+      max-width: 1200px; margin: 0 auto; padding: 0 4rem;
+      display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem;
+    }
+
+    /* ── LEFT COLUMN ── */
+    .section-label {
+      font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase; color: var(--g1);
+      display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.2rem;
+    }
+    .section-label::before { content: ''; width: 30px; height: 1px; background: var(--g1); }
+    .col-title {
+      font-size: clamp(2.5rem, 4vw, 4rem); line-height: 0.92;
+      background: linear-gradient(145deg, #fff, #c8ffe0, var(--g1));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
+    }
+    .col-body { font-size: 0.95rem; line-height: 1.8; color: rgba(180,240,200,0.5); font-weight: 300; margin-bottom: 2.5rem; }
+
+    /* office cards */
+    .office-card {
+      background: rgba(0,255,135,0.03);
+      border: 1px solid rgba(0,255,135,0.1); border-radius: 1.2rem;
+      padding: 1.4rem 1.6rem; margin-bottom: 1rem;
+      display: flex; gap: 1.2rem; align-items: flex-start;
+      transition: all 0.3s;
+    }
+    .office-card:hover {
+      background: rgba(0,255,135,0.07); border-color: rgba(0,255,135,0.3);
+      transform: translateX(6px); box-shadow: 0 10px 35px rgba(0,255,135,0.1);
+    }
+    .office-icon {
+      width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(0,255,135,0.16), rgba(0,196,167,0.08));
+      border: 1px solid rgba(0,255,135,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; color: var(--g1); transition: all 0.3s;
+    }
+    .office-card:hover .office-icon { box-shadow: 0 0 20px rgba(0,255,135,0.25); }
+    .office-city {
+      font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700;
+      color: rgba(220,255,235,0.9); margin-bottom: 0.2rem;
+    }
+    .office-tag {
+      font-family: 'Syne', sans-serif; font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--g1); background: rgba(0,255,135,0.08);
+      border: 1px solid rgba(0,255,135,0.2); border-radius: 100px;
+      padding: 0.1rem 0.6rem; display: inline-block; margin-bottom: 0.5rem;
+    }
+    .office-addr { font-size: 0.82rem; color: rgba(150,215,175,0.45); line-height: 1.5; }
+    .office-phone { font-size: 0.82rem; color: rgba(0,255,135,0.6); margin-top: 0.3rem; }
+
+    /* direct reach */
+    .reach-row {
+      display: flex; align-items: center; gap: 1.1rem;
+      padding: 0.9rem 0; border-bottom: 1px solid rgba(0,255,135,0.06);
+      transition: all 0.3s;
+    }
+    .reach-row:last-child { border-bottom: none; }
+    .reach-row:hover { padding-left: 0.4rem; }
+    .reach-icon {
+      width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0;
+      background: rgba(0,255,135,0.07); border: 1px solid rgba(0,255,135,0.18);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; color: var(--g1);
+    }
+    .reach-label { font-family: 'Syne', sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(0,255,135,0.45); display: block; margin-bottom: 0.1rem; }
+    .reach-value { font-size: 0.88rem; color: rgba(200,255,220,0.8); }
+    .reach-value a { color: inherit; text-decoration: none; transition: color 0.3s; }
+    .reach-value a:hover { color: var(--g1); }
+
+    /* emergency banner */
+    .emergency-banner {
+      background: rgba(0,255,135,0.04);
+      border: 1px solid rgba(0,255,135,0.2); border-left: 3px solid var(--g1);
+      border-radius: 1.2rem; padding: 1.4rem 1.6rem;
+      display: flex; align-items: center; gap: 1.3rem;
+      margin-top: 1.5rem; transition: all 0.3s;
+    }
+    .emergency-banner:hover { background: rgba(0,255,135,0.07); box-shadow: 0 10px 35px rgba(0,255,135,0.1); }
+    .emerg-icon {
+      width: 50px; height: 50px; border-radius: 14px; flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(0,255,135,0.2), rgba(0,196,167,0.1));
+      border: 1px solid rgba(0,255,135,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; color: var(--g1); animation: pulse 2s ease infinite;
+    }
+    @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(0,255,135,0.4)} 50%{box-shadow:0 0 0 10px rgba(0,255,135,0)} }
+    .emerg-title { font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--g1); }
+    .emerg-sub { font-size: 0.8rem; color: rgba(150,215,175,0.45); margin-top: 0.1rem; }
+    .emerg-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; background: linear-gradient(135deg, var(--g1), var(--g2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-top: 0.2rem; }
+
+    /* social row */
+    .social-row { display: flex; gap: 0.8rem; margin-top: 1.8rem; }
+    .soc-btn {
+      width: 40px; height: 40px; border-radius: 11px;
+      border: 1px solid rgba(0,255,135,0.15); background: rgba(0,255,135,0.04);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(0,255,135,0.45); font-size: 0.9rem; text-decoration: none;
+      transition: all 0.3s;
+    }
+    .soc-btn:hover { border-color: var(--g1); color: var(--g1); background: rgba(0,255,135,0.12); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,255,135,0.2); }
+
+    /* ── FORM ── */
+    .form-panel {
+      background: rgba(0,255,135,0.03);
+      border: 1px solid rgba(0,255,135,0.1); border-radius: 2rem;
+      padding: 3rem; backdrop-filter: blur(25px);
+      position: relative; overflow: hidden;
+    }
+    .form-panel::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 250px; height: 250px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,255,135,0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .form-panel-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1541976590-713941681591?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover; background-position: center;
+      filter: brightness(0.04) saturate(0.3);
+      border-radius: 2rem;
+    }
+    .form-panel-inner { position: relative; z-index: 1; }
+    .form-title { font-size: 3rem; line-height: 0.9; background: linear-gradient(135deg, #fff, #c8ffe0, var(--g1)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem; }
+    .form-sub { font-size: 0.88rem; font-weight: 300; color: rgba(150,215,175,0.45); margin-bottom: 2.5rem; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.2rem; }
+    .form-group { display: flex; flex-direction: column; margin-bottom: 1.2rem; }
+    .form-label {
+      font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(0,255,135,0.55);
+      margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.5rem;
+    }
+    .form-label i { font-size: 0.7rem; }
+    .form-input, .form-select, .form-textarea {
+      font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 300;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(0,255,135,0.15); border-radius: 0.85rem;
+      color: rgba(220,255,230,0.9); padding: 0.9rem 1.2rem;
+      outline: none; transition: all 0.3s; width: 100%;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: rgba(150,210,170,0.25); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: rgba(0,255,135,0.5);
+      background: rgba(0,0,0,0.5);
+      box-shadow: 0 0 0 3px rgba(0,255,135,0.08), 0 0 25px rgba(0,255,135,0.08);
+    }
+    .form-select { appearance: none; cursor: pointer; }
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: '\f107'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+      position: absolute; right: 1.2rem; top: 50%; transform: translateY(-50%);
+      color: rgba(0,255,135,0.4); pointer-events: none; font-size: 0.8rem;
+    }
+    .form-textarea { resize: none; line-height: 1.6; }
+
+    /* service checkboxes */
+    .services-check { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.2rem; }
+    .svc-check-label {
+      font-family: 'Syne', sans-serif; font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.4rem 1rem; border-radius: 100px;
+      border: 1px solid rgba(0,255,135,0.15); background: rgba(0,255,135,0.03);
+      color: rgba(170,250,200,0.5); cursor: pointer;
+      transition: all 0.25s; display: flex; align-items: center; gap: 0.5rem;
+      user-select: none;
+    }
+    .svc-check-label i { font-size: 0.7rem; color: rgba(0,255,135,0.4); transition: color 0.25s; }
+    .svc-check-label:hover { border-color: rgba(0,255,135,0.4); color: rgba(200,255,220,0.8); }
+    .svc-check-label:hover i { color: var(--g1); }
+    .svc-check-label.active {
+      border-color: var(--g1); background: rgba(0,255,135,0.1);
+      color: var(--g1); box-shadow: 0 0 15px rgba(0,255,135,0.12);
+    }
+    .svc-check-label.active i { color: var(--g1); }
+
+    /* file hint */
+    .file-hint {
+      display: flex; align-items: center; gap: 0.8rem;
+      padding: 0.8rem 1.2rem; border-radius: 0.85rem;
+      border: 1px dashed rgba(0,255,135,0.15); background: rgba(0,255,135,0.02);
+      margin-bottom: 1.5rem; transition: all 0.3s;
+    }
+    .file-hint:hover { border-color: rgba(0,255,135,0.3); background: rgba(0,255,135,0.04); }
+    .file-hint i { color: rgba(0,255,135,0.45); font-size: 0.9rem; }
+    .file-hint span { font-size: 0.78rem; color: rgba(150,215,175,0.4); }
+
+    /* submit */
+    .btn-submit {
+      font-family: 'Syne', sans-serif; font-size: 0.88rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      width: 100%; padding: 1.1rem; border-radius: 0.85rem; border: none;
+      background: linear-gradient(135deg, #00ff87, #00c4a7); color: #030d07;
+      cursor: pointer; position: relative; overflow: hidden;
+      transition: all 0.3s ease; box-shadow: 0 8px 30px rgba(0,255,135,0.3);
+      display: flex; align-items: center; justify-content: center; gap: 0.7rem;
+    }
+    .btn-submit::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, #7fffcc, #00ff87);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 20px 50px rgba(0,255,135,0.45); }
+    .btn-submit:hover::before { opacity: 1; }
+    .btn-submit span { position: relative; z-index: 1; display: flex; align-items: center; gap: 0.7rem; }
+    .form-privacy { font-size: 0.72rem; color: rgba(120,185,145,0.3); text-align: center; margin-top: 1rem; }
+
+    /* ── COVERAGE ── */
+    .coverage-section {
+      padding: 7rem 0; position: relative;
+      background: linear-gradient(180deg, #041209 0%, #071510 100%);
+    }
+    .coverage-section::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(0,255,135,0.25),transparent); }
+    .coverage-section::after { content:''; position:absolute; bottom:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(0,255,135,0.25),transparent); }
+    .coverage-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 4rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+    }
+    .cov-title { font-size: clamp(2.8rem, 4.5vw, 4.5rem); line-height: 0.92; background: linear-gradient(145deg, #fff, #c8ffe0, var(--g1)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1.5rem; }
+    .cov-body { font-size: 0.95rem; line-height: 1.8; color: rgba(180,240,200,0.5); font-weight: 300; margin-bottom: 2rem; }
+    .region-pills { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+    .region-pill {
+      font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.5rem 1.1rem; border-radius: 100px;
+      border: 1px solid rgba(0,255,135,0.2); background: rgba(0,255,135,0.04);
+      backdrop-filter: blur(8px); color: rgba(170,250,200,0.6);
+      display: flex; align-items: center; gap: 0.5rem; transition: all 0.3s;
+    }
+    .region-pill i { font-size: 0.7rem; color: var(--g1); }
+    .region-pill:hover { border-color: var(--g1); color: var(--g1); background: rgba(0,255,135,0.1); transform: translateY(-2px); }
+
+    /* dot matrix */
+    .dot-matrix {
+      display: grid; grid-template-columns: repeat(8, 1fr); gap: 0.8rem;
+      padding: 2.5rem; border-radius: 1.5rem;
+      background: rgba(0,255,135,0.02); border: 1px solid rgba(0,255,135,0.08);
+    }
+    .dm-dot {
+      width: 100%; aspect-ratio: 1; border-radius: 50%;
+      background: rgba(0,255,135,0.12); transition: all 0.3s;
+    }
+    .dm-dot.bright { background: rgba(0,255,135,0.65); box-shadow: 0 0 10px rgba(0,255,135,0.4); animation: dmPulse 3s ease infinite; }
+    .dm-dot.mid { background: rgba(0,255,135,0.35); }
+    .dm-dot.dim { background: rgba(0,255,135,0.08); }
+    .dm-dot:hover { background: var(--g1); box-shadow: 0 0 15px rgba(0,255,135,0.5); transform: scale(1.3); }
+    @keyframes dmPulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+
+    /* ── FAQ ── */
+    .faq-section {
+      padding: 7rem 0;
+      background: linear-gradient(160deg, #030d07 0%, #071510 60%, #030d07 100%);
+    }
+    .faq-inner { max-width: 1100px; margin: 0 auto; padding: 0 4rem; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 4rem; }
+    .faq-card {
+      background: rgba(0,255,135,0.03); border: 1px solid rgba(0,255,135,0.08);
+      border-radius: 1.2rem; padding: 1.8rem;
+      backdrop-filter: blur(15px); transition: all 0.3s; cursor: default;
+    }
+    .faq-card:hover { background: rgba(0,255,135,0.07); border-color: rgba(0,255,135,0.25); transform: translateY(-4px); box-shadow: 0 15px 40px rgba(0,255,135,0.1); }
+    .faq-q {
+      font-family: 'Syne', sans-serif; font-size: 0.88rem; font-weight: 700;
+      color: rgba(210,255,225,0.9); margin-bottom: 0.7rem;
+      display: flex; align-items: flex-start; gap: 0.8rem;
+    }
+    .faq-q i { color: var(--g1); font-size: 0.8rem; margin-top: 3px; flex-shrink: 0; }
+    .faq-a { font-size: 0.82rem; line-height: 1.7; color: rgba(140,210,170,0.45); font-weight: 300; }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      padding: 7rem 0; position: relative; overflow: hidden;
+      background: var(--dark);
+    }
+    .cta-band-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; filter: brightness(0.07) saturate(0.4); }
+    .cta-band-overlay { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(3,13,7,0.98) 0%, rgba(3,13,7,0.8) 50%, rgba(3,13,7,0.98) 100%); }
+    .cta-inner { position: relative; z-index: 10; max-width: 800px; margin: 0 auto; padding: 0 3rem; text-align: center; }
+    .cta-title { font-size: clamp(3.5rem, 8vw, 8rem); line-height: 0.9; background: linear-gradient(135deg, #fff, #c8ffe0, var(--g1)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1.2rem; }
+    .cta-sub { font-size: 1rem; font-weight: 300; color: rgba(180,240,200,0.45); margin-bottom: 3.5rem; }
+    .cta-actions { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 1rem 2.8rem; border-radius: 100px; border: none;
+      background: linear-gradient(135deg, #00ff87, #00c4a7); color: #030d07;
+      text-decoration: none; cursor: pointer; position: relative; overflow: hidden;
+      transition: all 0.3s ease; box-shadow: 0 8px 30px rgba(0,255,135,0.35); display: inline-block;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 50px rgba(0,255,135,0.5); }
+    .btn-ghost {
+      font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 1rem 2.8rem; border-radius: 100px;
+      border: 1.5px solid rgba(0,255,135,0.4); background: rgba(0,255,135,0.05);
+      backdrop-filter: blur(12px); color: rgba(200,255,220,0.9); text-decoration: none;
+      transition: all 0.3s ease; display: inline-block;
+    }
+    .btn-ghost:hover { border-color: var(--g1); background: rgba(0,255,135,0.12); color: var(--g1); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,255,135,0.2); }
+
+    /* ── FOOTER ── */
+    footer { background: linear-gradient(180deg, #030d07 0%, #020c06 100%); border-top: 1px solid rgba(0,255,135,0.08); padding: 4rem 0 2.5rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 4rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 0.05em; background: linear-gradient(135deg, #c8ffde, var(--g1)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+    .footer-services { font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(120,180,150,0.35); }
+    .footer-social { display: flex; gap: 0.8rem; }
+    .social-btn { width: 36px; height: 36px; border-radius: 9px; border: 1px solid rgba(0,255,135,0.15); background: rgba(0,255,135,0.04); display: flex; align-items: center; justify-content: center; color: rgba(0,255,135,0.4); font-size: 0.85rem; text-decoration: none; transition: all 0.3s; }
+    .social-btn:hover { border-color: var(--g1); color: var(--g1); background: rgba(0,255,135,0.12); transform: translateY(-2px); }
+    .footer-copy { max-width: 1200px; margin: 2.5rem auto 0; padding: 1.5rem 4rem 0; border-top: 1px solid rgba(0,255,135,0.06); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    .footer-copy span { font-size: 0.75rem; color: rgba(120,180,150,0.3); }
+    .footer-copy .accent { color: rgba(0,255,135,0.45); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .contact-inner, .coverage-inner { grid-template-columns: 1fr; gap: 3rem; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links, .nav-cta { display: none; }
+      .mob-menu-btn { display: block; }
+      .contact-inner, .faq-inner, .coverage-inner, .footer-inner, .footer-copy, .cta-inner { padding: 0 2rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .dot-matrix { grid-template-columns: repeat(6, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAV ══ -->
+  <nav id="main-nav">
+    <a href="index.html" class="nav-logo">Eboile<span style="font-size:1.3rem;opacity:0.6"> Trading</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <a href="#form" class="nav-cta">Send Message</a>
+    <button class="mob-menu-btn"><i class="fa-solid fa-bars"></i></button>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section class="contact-hero">
+    <div class="contact-hero-bg"></div>
+    <div class="contact-hero-overlay"></div>
+    <div class="hero-vein"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="dot"></div>
+        Get In Touch
+        <div class="dot"></div>
+      </div>
+      <h1>CONTACT<br>US</h1>
+      <p class="hero-sub">we reply within 2 hours · 24/7 for emergencies</p>
+      <div class="hero-badges">
+        <span class="hero-badge"><i class="fa-solid fa-clock"></i>2-hr Response</span>
+        <span class="hero-badge"><i class="fa-solid fa-phone"></i>24/7 Emergency Line</span>
+        <span class="hero-badge"><i class="fa-solid fa-location-dot"></i>3 Regional Offices</span>
+        <span class="hero-badge"><i class="fa-solid fa-globe"></i>East Africa Coverage</span>
+      </div>
+    </div>
+
+    <div class="scroll-cue">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ══ MAIN CONTACT ══ -->
+  <section class="contact-section" id="contact">
+    <div class="contact-bg-wash"></div>
+    <div class="grid-pattern"></div>
+    <div class="contact-inner">
+
+      <!-- LEFT: Info -->
+      <div>
+        <p class="section-label">Our Locations</p>
+        <h2 class="col-title">FIND<br>US HERE</h2>
+        <p class="col-body">Three strategic hubs serving East Africa — each fully equipped for catering dispatch, transport coordination, supply warehousing, and construction project management.</p>
+
+        <div class="office-card">
+          <div class="office-icon"><i class="fa-solid fa-building"></i></div>
+          <div>
+            <span class="office-tag">Headquarters</span>
+            <div class="office-city">Nairobi</div>
+            <div class="office-addr">Kilimani Business Centre, 5th Floor<br>PO Box 40232 – 00100 Nairobi</div>
+            <div class="office-phone"><i class="fa-solid fa-phone" style="margin-right:0.4rem;font-size:0.75rem"></i>+254 20 765 4321</div>
+          </div>
+        </div>
+
+        <div class="office-card">
+          <div class="office-icon"><i class="fa-solid fa-warehouse"></i></div>
+          <div>
+            <span class="office-tag">Coastal Hub</span>
+            <div class="office-city">Mombasa</div>
+            <div class="office-addr">Miritini Cargo Centre, Warehouse 7<br>PO Box 84560 – 80100 Mombasa</div>
+            <div class="office-phone"><i class="fa-solid fa-phone" style="margin-right:0.4rem;font-size:0.75rem"></i>+254 41 231 5678</div>
+          </div>
+        </div>
+
+        <div class="office-card">
+          <div class="office-icon"><i class="fa-solid fa-ship"></i></div>
+          <div>
+            <span class="office-tag">Lake Region</span>
+            <div class="office-city">Kisumu</div>
+            <div class="office-addr">Oginga Odinga Road, Jubilee House<br>PO Box 1234 – 40100 Kisumu</div>
+            <div class="office-phone"><i class="fa-solid fa-phone" style="margin-right:0.4rem;font-size:0.75rem"></i>+254 57 250 3344</div>
+          </div>
+        </div>
+
+        <!-- direct reach -->
+        <div style="margin-top:2rem">
+          <div class="reach-row">
+            <div class="reach-icon"><i class="fa-regular fa-envelope"></i></div>
+            <div>
+              <span class="reach-label">Email</span>
+              <div class="reach-value"><a href="mailto:info@eboile.trading">info@eboile.trading</a></div>
+            </div>
+          </div>
+          <div class="reach-row">
+            <div class="reach-icon"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <span class="reach-label">Main Switchboard</span>
+              <div class="reach-value">+254 700 123 456</div>
+            </div>
+          </div>
+          <div class="reach-row">
+            <div class="reach-icon"><i class="fa-regular fa-clock"></i></div>
+            <div>
+              <span class="reach-label">Office Hours</span>
+              <div class="reach-value">Mon–Fri 8:00–18:00 · Sat 9:00–14:00</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- emergency -->
+        <div class="emergency-banner">
+          <div class="emerg-icon"><i class="fa-solid fa-truck-fast"></i></div>
+          <div>
+            <div class="emerg-title">24/7 Emergency Line</div>
+            <div class="emerg-sub">Transport breakdown · Urgent cleaning · Site support</div>
+            <div class="emerg-num">+254 722 333 444</div>
+          </div>
+        </div>
+
+        <div class="social-row">
+          <a href="#" class="soc-btn"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="soc-btn"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="soc-btn"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="soc-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="soc-btn"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div class="form-panel" id="form">
+        <div class="form-panel-bg"></div>
+        <div class="form-panel-inner">
+          <h2 class="form-title">SEND A<br>MESSAGE</h2>
+          <p class="form-sub">We'll get back to you within 2 hours — or sooner.</p>
+
+          <div class="form-row">
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label"><i class="fa-regular fa-user"></i>Full Name</label>
+              <input type="text" class="form-input" placeholder="e.g. Grace Achieng">
+            </div>
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label"><i class="fa-regular fa-envelope"></i>Email</label>
+              <input type="email" class="form-input" placeholder="you@example.com">
+            </div>
+          </div>
+
+          <div class="form-row" style="margin-bottom:1.2rem">
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label"><i class="fa-solid fa-phone"></i>Phone (optional)</label>
+              <input type="text" class="form-input" placeholder="+254 ...">
+            </div>
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label"><i class="fa-solid fa-building"></i>Company (optional)</label>
+              <input type="text" class="form-input" placeholder="Your organisation">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"><i class="fa-solid fa-layer-group"></i>Services of Interest</label>
+            <div class="services-check">
+              <span class="svc-check-label" onclick="this.classList.toggle('active')"><i class="fa-solid fa-kitchen-set"></i>Catering</span>
+              <span class="svc-check-label" onclick="this.classList.toggle('active')"><i class="fa-solid fa-soap"></i>Cleaning</span>
+              <span class="svc-check-label" onclick="this.classList.toggle('active')"><i class="fa-solid fa-truck"></i>Transport</span>
+              <span class="svc-check-label" onclick="this.classList.toggle('active')"><i class="fa-solid fa-boxes-stacked"></i>General Supply</span>
+              <span class="svc-check-label" onclick="this.classList.toggle('active')"><i class="fa-solid fa-helmet-safety"></i>Building & Civil</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"><i class="fa-solid fa-list"></i>Project Type</label>
+            <div class="select-wrap">
+              <select class="form-select">
+                <option value="" style="background:#030d07">Select project type…</option>
+                <option style="background:#030d07">One-time event / project</option>
+                <option style="background:#030d07">Recurring / long-term contract</option>
+                <option style="background:#030d07">Emergency / urgent request</option>
+                <option style="background:#030d07">General inquiry / quote request</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"><i class="fa-regular fa-comment"></i>Message / Project Details</label>
+            <textarea class="form-textarea" rows="5" placeholder="Tell us about your catering event, cleaning schedule, transport route, supply needs, or construction project…"></textarea>
+          </div>
+
+          <div class="file-hint">
+            <i class="fa-solid fa-paperclip"></i>
+            <span>Need to attach files? We'll send a secure upload link after your first message.</span>
+          </div>
+
+          <button type="button" class="btn-submit">
+            <span><i class="fa-regular fa-paper-plane"></i>Send Inquiry</span>
+          </button>
+
+          <p class="form-privacy">By submitting you agree to our Privacy Policy & Terms of Service.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ COVERAGE ══ -->
+  <section class="coverage-section">
+    <div class="coverage-inner">
+      <div>
+        <p class="section-label">Our Reach</p>
+        <h2 class="cov-title">EAST AFRICA<br>COVERAGE</h2>
+        <p class="cov-body">Operating from three hubs — Nairobi, Mombasa, and Kisumu — with regular routes to Kampala, Dar es Salaam, and Juba. Our transport and supply chains reach even the most remote project sites.</p>
+        <div class="region-pills">
+          <span class="region-pill"><i class="fa-solid fa-location-dot"></i>Kenya</span>
+          <span class="region-pill"><i class="fa-solid fa-location-dot"></i>Uganda</span>
+          <span class="region-pill"><i class="fa-solid fa-location-dot"></i>Tanzania</span>
+          <span class="region-pill"><i class="fa-solid fa-truck"></i>Cross-Border Logistics</span>
+          <span class="region-pill"><i class="fa-solid fa-ship"></i>Port Access · Mombasa</span>
+        </div>
+      </div>
+      <div>
+        <div class="dot-matrix">
+          <div class="dm-dot bright"></div><div class="dm-dot dim"></div><div class="dm-dot mid"></div><div class="dm-dot dim"></div><div class="dm-dot bright"></div><div class="dm-dot dim"></div><div class="dm-dot mid"></div><div class="dm-dot dim"></div>
+          <div class="dm-dot dim"></div><div class="dm-dot mid"></div><div class="dm-dot bright"></div><div class="dm-dot mid"></div><div class="dm-dot dim"></div><div class="dm-dot bright"></div><div class="dm-dot dim"></div><div class="dm-dot mid"></div>
+          <div class="dm-dot mid"></div><div class="dm-dot bright"></div><div class="dm-dot dim"></div><div class="dm-dot bright"></div><div class="dm-dot mid"></div><div class="dm-dot dim"></div><div class="dm-dot bright"></div><div class="dm-dot dim"></div>
+          <div class="dm-dot dim"></div><div class="dm-dot dim"></div><div class="dm-dot mid"></div><div class="dm-dot dim"></div><div class="dm-dot bright"></div><div class="dm-dot mid"></div><div class="dm-dot dim"></div><div class="dm-dot bright"></div>
+          <div class="dm-dot bright"></div><div class="dm-dot mid"></div><div class="dm-dot dim"></div><div class="dm-dot mid"></div><div class="dm-dot dim"></div><div class="dm-dot bright"></div><div class="dm-dot mid"></div><div class="dm-dot dim"></div>
+          <div class="dm-dot dim"></div><div class="dm-dot bright"></div><div class="dm-dot mid"></div><div class="dm-dot dim"></div><div class="dm-dot mid"></div><div class="dm-dot dim"></div><div class="dm-dot bright"></div><div class="dm-dot mid"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ══ -->
+  <section class="faq-section">
+    <div class="faq-inner">
+      <div style="text-align:center;margin-bottom:0">
+        <p class="section-label" style="justify-content:center"><span style="width:30px;height:1px;background:var(--g1);display:inline-block"></span>&nbsp;Common Questions&nbsp;<span style="width:30px;height:1px;background:var(--g1);display:inline-block"></span></p>
+        <h2 style="font-size:clamp(3rem,5.5vw,5rem);line-height:0.9;background:linear-gradient(135deg,#fff,#c8ffe0,var(--g1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-top:0.8rem">FREQUENTLY<br>ASKED</h2>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-card">
+          <div class="faq-q"><i class="fa-solid fa-circle-dot"></i>Do you serve remote areas?</div>
+          <p class="faq-a">Yes — our transport and supply teams run daily upcountry routes. We cover remote construction sites, rural event venues, and off-grid facilities across East Africa.</p>
+        </div>
+        <div class="faq-card">
+          <div class="faq-q"><i class="fa-solid fa-circle-dot"></i>Can I get a combined service quote?</div>
+          <p class="faq-a">Absolutely. Just select multiple services in the form above. We offer bundled pricing for clients using two or more divisions — often with significant savings.</p>
+        </div>
+        <div class="faq-card">
+          <div class="faq-q"><i class="fa-solid fa-circle-dot"></i>What's your typical response time?</div>
+          <p class="faq-a">Within 2 hours during business days. For emergency transport or cleaning requests, our dedicated line guarantees a response within 1 hour, 24/7.</p>
+        </div>
+        <div class="faq-card">
+          <div class="faq-q"><i class="fa-solid fa-circle-dot"></i>Are you ISO certified?</div>
+          <p class="faq-a">Yes — we hold ISO 9001:2015 (Quality Management), ISO 14001 (Environmental), and are fully OSHA compliant. Certificates available on request.</p>
+        </div>
+        <div class="faq-card">
+          <div class="faq-q"><i class="fa-solid fa-circle-dot"></i>Do you handle government tenders?</div>
+          <p class="faq-a">We are registered with the Kenya Public Procurement Regulatory Authority and actively participate in government and NGO tenders across all five service divisions.</p>
+        </div>
+        <div class="faq-card">
+          <div class="faq-q"><i class="fa-solid fa-circle-dot"></i>What payment terms do you offer?</div>
+          <p class="faq-a">We offer 30/60-day payment terms for verified businesses, milestone-based billing for construction projects, and standard advance payment for event catering.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA BAND ══ -->
+  <section class="cta-band">
+    <div class="cta-band-bg"></div>
+    <div class="cta-band-overlay"></div>
+    <div class="cta-inner">
+      <p class="section-label" style="justify-content:center;margin-bottom:1.2rem">
+        <span style="width:24px;height:1px;background:var(--g1);display:inline-block"></span>
+        Ready to Start
+        <span style="width:24px;height:1px;background:var(--g1);display:inline-block"></span>
+      </p>
+      <h2 class="cta-title">CALL US<br>NOW</h2>
+      <p class="cta-sub">Fill the form above or reach us directly — we'll prepare a tailored proposal.</p>
+      <div class="cta-actions">
+        <a href="tel:+254700123456" class="btn-primary"><i class="fa-solid fa-phone" style="margin-right:0.5rem"></i>+254 700 123 456</a>
+        <a href="mailto:info@eboile.trading" class="btn-ghost"><i class="fa-regular fa-envelope" style="margin-right:0.5rem"></i>info@eboile.trading</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">EBOILE TRADING</a>
+      <p class="footer-services">catering &nbsp;·&nbsp; cleaning &nbsp;·&nbsp; transport &nbsp;·&nbsp; supply &nbsp;·&nbsp; building & civil</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <span>© 2025 <span class="accent">Eboile Trading</span>. All rights reserved.</span>
+      <span>East Africa Hub · Nairobi & Mombasa</span>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        nav.style.background = 'rgba(3,13,7,0.97)';
+        nav.style.borderBottomColor = 'rgba(0,255,135,0.12)';
+      } else {
+        nav.style.background = 'linear-gradient(180deg, rgba(3,13,7,0.92) 0%, transparent 100%)';
+        nav.style.borderBottomColor = 'rgba(0,255,135,0.08)';
+      }
+    });
+  </script>
+</body>
+</html>

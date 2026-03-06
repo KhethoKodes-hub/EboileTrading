@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eboile Trading • Our Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --g1: #00ff87;
+      --g2: #00c4a7;
+      --dark: #030d07;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--dark);
+      color: #e0ffe8;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 { font-family: 'Bebas Neue', sans-serif; }
+    .syne { font-family: 'Syne', sans-serif; }
+
+    /* noise */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 9999; opacity: 0.35;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      padding: 1.4rem 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: linear-gradient(180deg, rgba(3,13,7,0.92) 0%, transparent 100%);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(0,255,135,0.08);
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.08em;
+      background: linear-gradient(90deg, #c8ffde, #00ff87);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(200,255,220,0.7); text-decoration: none; position: relative; transition: color 0.3s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: linear-gradient(90deg, var(--g1), var(--g2));
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--g1); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-cta {
+      font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.65rem 1.8rem; border-radius: 100px;
+      border: 1px solid rgba(0,255,135,0.5); color: var(--g1);
+      text-decoration: none; background: rgba(0,255,135,0.06);
+      backdrop-filter: blur(10px); transition: all 0.3s ease;
+    }
+    .nav-cta:hover { background: rgba(0,255,135,0.18); border-color: var(--g1); box-shadow: 0 0 30px rgba(0,255,135,0.25); transform: translateY(-1px); }
+    .mob-menu-btn { display: none; background: none; border: none; cursor: pointer; color: var(--g1); font-size: 1.4rem; }
+
+    /* ── HERO ── */
+    .services-hero {
+      position: relative; height: 75vh; min-height: 580px;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    .services-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1605001011156-cbf0b0f67a51?q=80&w=2069&auto=format&fit=crop');
+      background-size: cover; background-position: center;
+      filter: brightness(0.28) saturate(1.3);
+      transform: scale(1.06); transition: transform 8s ease;
+    }
+    .services-hero:hover .services-hero-bg { transform: scale(1.0); }
+    .services-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(3,13,7,0.96) 0%, rgba(3,13,7,0.35) 55%, rgba(3,13,7,0.9) 100%);
+    }
+    .hero-vein {
+      position: absolute; top: -20%; left: 55%; width: 2px; height: 140%;
+      background: linear-gradient(180deg, transparent, rgba(0,255,135,0.2) 40%, rgba(0,196,167,0.1) 70%, transparent);
+      transform: rotate(-12deg); filter: blur(4px);
+      animation: veinPulse 4s ease-in-out infinite;
+    }
+    @keyframes veinPulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+
+    .hero-content { position: relative; z-index: 10; text-align: center; padding: 0 2rem; max-width: 950px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.8rem;
+      font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.35em; text-transform: uppercase; color: var(--g1);
+      padding: 0.5rem 1.4rem; border: 1px solid rgba(0,255,135,0.3); border-radius: 100px;
+      background: rgba(0,255,135,0.07); backdrop-filter: blur(10px); margin-bottom: 2rem;
+      animation: fadeUp 0.8s ease both;
+    }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--g1); box-shadow: 0 0 10px var(--g1); animation: blink 2s ease infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .hero-content h1 {
+      font-size: clamp(4.5rem, 11vw, 11rem); line-height: 0.9; letter-spacing: -0.01em;
+      background: linear-gradient(145deg, #ffffff 0%, #d0ffea 40%, var(--g1) 80%, var(--g2) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 60px rgba(0,255,135,0.12));
+      animation: fadeUp 0.9s 0.1s ease both;
+    }
+    .hero-sub {
+      font-size: clamp(0.95rem, 1.8vw, 1.2rem); font-weight: 300; font-style: italic;
+      color: rgba(200,255,220,0.6); letter-spacing: 0.04em; margin-top: 1.5rem;
+      animation: fadeUp 1s 0.2s ease both;
+    }
+    /* service nav pills in hero */
+    .hero-nav-pills {
+      display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: center; margin-top: 2.8rem;
+      animation: fadeUp 1s 0.3s ease both;
+    }
+    .hnp {
+      font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.5rem 1.3rem; border-radius: 100px;
+      border: 1px solid rgba(0,255,135,0.18); background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(10px); color: rgba(200,255,220,0.6);
+      text-decoration: none; transition: all 0.3s; display: flex; align-items: center; gap: 0.5rem;
+    }
+    .hnp:hover { border-color: var(--g1); color: var(--g1); background: rgba(0,255,135,0.1); transform: translateY(-2px); }
+    .hnp i { font-size: 0.75rem; }
+
+    .scroll-cue {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.6rem; z-index: 10;
+      animation: fadeUp 1s 0.8s ease both;
+    }
+    .scroll-cue span { font-family: 'Syne', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(0,255,135,0.5); }
+    .scroll-line { width: 1px; height: 50px; background: linear-gradient(180deg, rgba(0,255,135,0.6), transparent); animation: scrollDrop 2s ease infinite; }
+    @keyframes scrollDrop { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform:scaleY(1);transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+    /* ── INTRO BAND ── */
+    .intro-band {
+      padding: 5rem 0; position: relative;
+      background: linear-gradient(180deg, #041209 0%, #071510 100%);
+    }
+    .intro-band::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(0,255,135,0.25),transparent); }
+    .intro-band::after { content:''; position:absolute; bottom:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(0,255,135,0.25),transparent); }
+    .intro-inner { max-width: 800px; margin: 0 auto; padding: 0 3rem; text-align: center; }
+    .section-label {
+      font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase; color: var(--g1);
+      display: flex; align-items: center; justify-content: center; gap: 0.8rem; margin-bottom: 1.2rem;
+    }
+    .section-label::before, .section-label::after { content: ''; width: 30px; height: 1px; background: var(--g1); }
+    .intro-title {
+      font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 0.92;
+      background: linear-gradient(145deg, #fff, #c8ffe0, var(--g1));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
+    }
+    .intro-text { font-size: 1rem; line-height: 1.85; color: rgba(180,240,200,0.5); font-weight: 300; }
+
+    /* ── SERVICE CARDS (detailed) ── */
+    .services-section { padding: 6rem 0; background: linear-gradient(160deg, #030d07 0%, #071510 50%, #030d07 100%); }
+    .services-inner { max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
+
+    .svc-card {
+      display: grid; grid-template-columns: 2fr 3fr;
+      border: 1px solid rgba(0,255,135,0.08);
+      border-radius: 2rem; overflow: hidden;
+      background: rgba(0,255,135,0.02);
+      margin-bottom: 3rem;
+      transition: all 0.4s ease;
+      position: relative;
+    }
+    .svc-card.reverse { grid-template-columns: 3fr 2fr; }
+    .svc-card.reverse .svc-img { order: 2; }
+    .svc-card.reverse .svc-body { order: 1; }
+
+    .svc-card::before {
+      content: ''; position: absolute; inset: 0; border-radius: 2rem;
+      background: radial-gradient(ellipse at 30% 50%, rgba(0,255,135,0.04) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.5s; pointer-events: none;
+    }
+    .svc-card.reverse::before { background: radial-gradient(ellipse at 70% 50%, rgba(0,255,135,0.04) 0%, transparent 60%); }
+    .svc-card:hover { border-color: rgba(0,255,135,0.25); box-shadow: 0 30px 80px rgba(0,255,135,0.1); transform: translateY(-4px); }
+    .svc-card:hover::before { opacity: 1; }
+
+    .svc-img {
+      position: relative; overflow: hidden; min-height: 420px;
+    }
+    .svc-img-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      filter: brightness(0.45) saturate(1.3);
+      transition: filter 0.6s ease, transform 0.6s ease;
+    }
+    .svc-card:hover .svc-img-bg { filter: brightness(0.6) saturate(1.6); transform: scale(1.05); }
+    .svc-img-overlay {
+      position: absolute; inset: 0;
+    }
+    .svc-card:not(.reverse) .svc-img-overlay {
+      background: linear-gradient(to right, rgba(3,13,7,0.1), rgba(3,13,7,0.6));
+    }
+    .svc-card.reverse .svc-img-overlay {
+      background: linear-gradient(to left, rgba(3,13,7,0.1), rgba(3,13,7,0.6));
+    }
+    /* big number watermark on image */
+    .svc-num-watermark {
+      position: absolute; bottom: -1rem; right: 1.5rem;
+      font-family: 'Bebas Neue', sans-serif; font-size: 9rem;
+      background: linear-gradient(180deg, rgba(0,255,135,0.15) 0%, transparent 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      line-height: 1; user-select: none; pointer-events: none;
+      transition: opacity 0.4s;
+    }
+    .svc-card.reverse .svc-num-watermark { right: auto; left: 1.5rem; }
+
+    .svc-body {
+      padding: 3.5rem 3rem; display: flex; flex-direction: column; justify-content: center;
+      position: relative; z-index: 1;
+    }
+    .svc-label {
+      font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase; color: var(--g1);
+      display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem;
+    }
+    .svc-label .num-dot {
+      width: 22px; height: 22px; border-radius: 6px; flex-shrink: 0;
+      background: rgba(0,255,135,0.1); border: 1px solid rgba(0,255,135,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem; color: var(--g1);
+    }
+    .svc-label i { font-size: 0.9rem; }
+    .svc-title {
+      font-size: clamp(2.2rem, 3.5vw, 3.5rem); line-height: 0.95; margin-bottom: 1.2rem;
+      background: linear-gradient(135deg, #fff, #cfffde, var(--g1));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .svc-desc {
+      font-size: 0.95rem; line-height: 1.8; color: rgba(180,240,200,0.55);
+      font-weight: 300; margin-bottom: 2rem; max-width: 480px;
+    }
+    /* feature pills */
+    .svc-pills { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 2.2rem; }
+    .spill {
+      font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.4rem 1rem; border-radius: 100px;
+      border: 1px solid rgba(0,255,135,0.18); background: rgba(0,255,135,0.04);
+      backdrop-filter: blur(8px); color: rgba(170,250,200,0.6);
+      display: flex; align-items: center; gap: 0.45rem;
+      transition: all 0.3s;
+    }
+    .spill i { font-size: 0.7rem; color: var(--g1); }
+    .spill:hover { border-color: var(--g1); color: var(--g1); background: rgba(0,255,135,0.1); transform: translateY(-2px); }
+    /* highlight stat */
+    .svc-highlight {
+      display: inline-flex; align-items: center; gap: 1rem;
+      padding: 1rem 1.5rem; border-radius: 1rem;
+      background: rgba(0,255,135,0.04); border: 1px solid rgba(0,255,135,0.12);
+      backdrop-filter: blur(15px); transition: all 0.3s;
+    }
+    .svc-highlight:hover { background: rgba(0,255,135,0.08); border-color: rgba(0,255,135,0.3); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,255,135,0.12); }
+    .hl-icon {
+      width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(0,255,135,0.18), rgba(0,196,167,0.08));
+      border: 1px solid rgba(0,255,135,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; color: var(--g1);
+    }
+    .hl-text strong {
+      font-family: 'Syne', sans-serif; font-size: 0.88rem; font-weight: 700;
+      color: rgba(220,255,235,0.9); display: block;
+    }
+    .hl-text span { font-size: 0.75rem; color: rgba(140,210,170,0.45); }
+
+    /* ── WHY US ── */
+    .why-section {
+      padding: 7rem 0; position: relative; overflow: hidden;
+      background: linear-gradient(180deg, #041209 0%, #071510 100%);
+    }
+    .why-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1605001011156-cbf0b0f67a51?q=80&w=2069&auto=format&fit=crop'); background-size: cover; background-position: center; filter: brightness(0.06) saturate(0.4); }
+    .why-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
+    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 4rem; }
+    .why-card {
+      background: rgba(0,255,135,0.03); border: 1px solid rgba(0,255,135,0.1);
+      border-radius: 1.5rem; padding: 2.5rem 1.8rem; text-align: center;
+      backdrop-filter: blur(20px); position: relative; overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    .why-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--g1), transparent);
+      opacity: 0; transition: opacity 0.4s;
+    }
+    .why-card:hover { background: rgba(0,255,135,0.07); border-color: rgba(0,255,135,0.3); transform: translateY(-8px); box-shadow: 0 25px 60px rgba(0,255,135,0.12); }
+    .why-card:hover::before { opacity: 1; }
+    .why-icon {
+      width: 60px; height: 60px; border-radius: 16px; margin: 0 auto 1.5rem;
+      background: linear-gradient(135deg, rgba(0,255,135,0.15), rgba(0,196,167,0.08));
+      border: 1px solid rgba(0,255,135,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; color: var(--g1); transition: all 0.3s;
+    }
+    .why-card:hover .why-icon { box-shadow: 0 0 30px rgba(0,255,135,0.3); }
+    .why-stat { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; background: linear-gradient(135deg, var(--g1), var(--g2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; }
+    .why-label { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(150,220,180,0.5); margin-top: 0.5rem; }
+
+    /* ── TAILORED SECTION ── */
+    .tailored-section {
+      padding: 7rem 0; position: relative;
+      background: linear-gradient(160deg, #030d07 0%, #071510 60%, #030d07 100%);
+    }
+    .tailored-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 4rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+    }
+    .tailored-title {
+      font-size: clamp(3rem, 5vw, 5rem); line-height: 0.92;
+      background: linear-gradient(145deg, #fff, #c8ffe0, var(--g1));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
+    }
+    .tailored-body { font-size: 1rem; line-height: 1.85; color: rgba(180,240,200,0.5); font-weight: 300; margin-bottom: 2.5rem; }
+    .check-list { list-style: none; }
+    .check-list li {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1rem 0; border-bottom: 1px solid rgba(0,255,135,0.06);
+      transition: all 0.3s;
+    }
+    .check-list li:last-child { border-bottom: none; }
+    .check-list li:hover { padding-left: 0.5rem; }
+    .chk-icon {
+      width: 26px; height: 26px; border-radius: 7px; flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(0,255,135,0.18), rgba(0,196,167,0.08));
+      border: 1px solid rgba(0,255,135,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; color: var(--g1); margin-top: 2px;
+    }
+    .chk-title { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700; color: rgba(210,255,225,0.9); }
+    .chk-sub { font-size: 0.8rem; color: rgba(140,200,165,0.45); margin-top: 0.15rem; }
+    /* large ring */
+    .rating-ring {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ring-outer {
+      width: 280px; height: 280px; border-radius: 50%;
+      border: 1px solid rgba(0,255,135,0.12);
+      background: rgba(0,255,135,0.03); backdrop-filter: blur(20px);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; transition: all 0.4s;
+    }
+    .ring-outer::before {
+      content: ''; position: absolute; inset: -15px; border-radius: 50%;
+      border: 1px solid rgba(0,255,135,0.06);
+    }
+    .ring-outer::after {
+      content: ''; position: absolute; inset: -30px; border-radius: 50%;
+      border: 1px solid rgba(0,255,135,0.03);
+    }
+    .ring-outer:hover { border-color: rgba(0,255,135,0.3); box-shadow: 0 0 60px rgba(0,255,135,0.1); }
+    .ring-inner { text-align: center; }
+    .ring-num { font-family: 'Bebas Neue', sans-serif; font-size: 6rem; line-height: 1; background: linear-gradient(135deg, var(--g1), var(--g2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .ring-label { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(150,220,180,0.5); margin-top: 0.3rem; }
+    .ring-stars { color: var(--g1); font-size: 1rem; letter-spacing: 0.1rem; margin-top: 0.5rem; }
+
+    /* ── CTA ── */
+    .cta-section { padding: 8rem 0; position: relative; overflow: hidden; background: var(--dark); }
+    .cta-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?q=80&w=2072&auto=format&fit=crop'); background-size: cover; background-position: center; filter: brightness(0.08) saturate(0.5); }
+    .cta-overlay { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(3,13,7,0.97) 0%, rgba(3,13,7,0.82) 50%, rgba(3,13,7,0.97) 100%); }
+    .cta-inner { position: relative; z-index: 10; max-width: 800px; margin: 0 auto; padding: 0 3rem; text-align: center; }
+    .cta-title { font-size: clamp(3.5rem, 8vw, 8rem); line-height: 0.9; background: linear-gradient(135deg, #fff, #c8ffe0, var(--g1)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1.2rem; }
+    .cta-sub { font-size: 1rem; font-weight: 300; color: rgba(180,240,200,0.45); margin-bottom: 3.5rem; }
+    .cta-actions { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 1rem 2.8rem; border-radius: 100px; border: none;
+      background: linear-gradient(135deg, #00ff87, #00c4a7); color: #030d07;
+      text-decoration: none; cursor: pointer; position: relative; overflow: hidden;
+      transition: all 0.3s ease; box-shadow: 0 8px 30px rgba(0,255,135,0.35); display: inline-block;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 50px rgba(0,255,135,0.5); }
+    .btn-ghost {
+      font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 1rem 2.8rem; border-radius: 100px;
+      border: 1.5px solid rgba(0,255,135,0.4); background: rgba(0,255,135,0.05);
+      backdrop-filter: blur(12px); color: rgba(200,255,220,0.9); text-decoration: none;
+      transition: all 0.3s ease; display: inline-block;
+    }
+    .btn-ghost:hover { border-color: var(--g1); background: rgba(0,255,135,0.12); color: var(--g1); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,255,135,0.2); }
+
+    /* ── FOOTER ── */
+    footer { background: linear-gradient(180deg, #030d07 0%, #020c06 100%); border-top: 1px solid rgba(0,255,135,0.08); padding: 4rem 0 2.5rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 4rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 0.05em; background: linear-gradient(135deg, #c8ffde, var(--g1)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+    .footer-services { font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(120,180,150,0.35); }
+    .footer-social { display: flex; gap: 0.8rem; }
+    .social-btn { width: 36px; height: 36px; border-radius: 9px; border: 1px solid rgba(0,255,135,0.15); background: rgba(0,255,135,0.04); display: flex; align-items: center; justify-content: center; color: rgba(0,255,135,0.4); font-size: 0.85rem; text-decoration: none; transition: all 0.3s; }
+    .social-btn:hover { border-color: var(--g1); color: var(--g1); background: rgba(0,255,135,0.12); transform: translateY(-2px); }
+    .footer-copy { max-width: 1200px; margin: 2.5rem auto 0; padding: 1.5rem 4rem 0; border-top: 1px solid rgba(0,255,135,0.06); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    .footer-copy span { font-size: 0.75rem; color: rgba(120,180,150,0.3); }
+    .footer-copy .accent { color: rgba(0,255,135,0.45); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .svc-card, .svc-card.reverse { grid-template-columns: 1fr; }
+      .svc-card.reverse .svc-img { order: 0; }
+      .svc-card.reverse .svc-body { order: 0; }
+      .svc-img { min-height: 260px; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .tailored-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .rating-ring { justify-content: flex-start; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links, .nav-cta { display: none; }
+      .mob-menu-btn { display: block; }
+      .services-inner, .why-inner, .tailored-inner, .footer-inner, .footer-copy, .cta-inner { padding: 0 2rem; }
+      .svc-body { padding: 2.5rem 2rem; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 540px) {
+      .why-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAV ══ -->
+  <nav id="main-nav">
+    <a href="index.html" class="nav-logo">Eboile<span style="font-size:1.3rem;opacity:0.6"> Trading</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get a Quote</a>
+    <button class="mob-menu-btn"><i class="fa-solid fa-bars"></i></button>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section class="services-hero">
+    <div class="services-hero-bg"></div>
+    <div class="services-hero-overlay"></div>
+    <div class="hero-vein"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="dot"></div>
+        Five Pillars · One Standard
+        <div class="dot"></div>
+      </div>
+      <h1>OUR<br>SERVICES</h1>
+      <p class="hero-sub">every service is a core business — not a side line</p>
+      <div class="hero-nav-pills">
+        <a href="#catering" class="hnp"><i class="fa-solid fa-kitchen-set"></i>Catering</a>
+        <a href="#cleaning" class="hnp"><i class="fa-solid fa-soap"></i>Cleaning</a>
+        <a href="#transport" class="hnp"><i class="fa-solid fa-truck"></i>Transport</a>
+        <a href="#supply" class="hnp"><i class="fa-solid fa-boxes-stacked"></i>General Supply</a>
+        <a href="#construction" class="hnp"><i class="fa-solid fa-helmet-safety"></i>Building & Civil</a>
+      </div>
+    </div>
+
+    <div class="scroll-cue">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ══ INTRO ══ -->
+  <div class="intro-band">
+    <div class="intro-inner">
+      <p class="section-label">Integrated Solutions</p>
+      <h2 class="intro-title">WE DELIVER<br>ACROSS INDUSTRIES</h2>
+      <p class="intro-text">From a five-star gala to a highway project, Eboile brings specialised teams, modern equipment, and a green approach. Each division is a dedicated business unit — with its own experts, tools, and track record.</p>
+    </div>
+  </div>
+
+  <!-- ══ SERVICE CARDS ══ -->
+  <section class="services-section" id="services">
+    <div class="services-inner">
+
+      <!-- 1 CATERING -->
+      <div class="svc-card" id="catering">
+        <div class="svc-img">
+          <div class="svc-img-bg" style="background-image: url('https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070&auto=format&fit=crop');"></div>
+          <div class="svc-img-overlay"></div>
+          <div class="svc-num-watermark">01</div>
+        </div>
+        <div class="svc-body">
+          <div class="svc-label"><span class="num-dot">01</span><i class="fa-solid fa-kitchen-set"></i>Catering Services</div>
+          <h3 class="svc-title">EXCEPTIONAL<br>CUISINE,<br>ANY SCALE</h3>
+          <p class="svc-desc">We cater for corporate events, weddings, staff meals, and high-profile galas. Our chefs design seasonal menus using local ingredients, with full dietary options. Service includes setup, waitstaff, and sustainable packaging.</p>
+          <div class="svc-pills">
+            <span class="spill"><i class="fa-solid fa-utensils"></i>Buffet & Plated</span>
+            <span class="spill"><i class="fa-solid fa-star-and-crescent"></i>Halal / Kosher</span>
+            <span class="spill"><i class="fa-solid fa-truck"></i>Food Trucks</span>
+            <span class="spill"><i class="fa-solid fa-clock"></i>24h Advance</span>
+            <span class="spill"><i class="fa-solid fa-leaf"></i>Zero Waste</span>
+            <span class="spill"><i class="fa-solid fa-champagne-glasses"></i>Weddings & Galas</span>
+          </div>
+          <div class="svc-highlight">
+            <div class="hl-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <div class="hl-text">
+              <strong>15,000+ meals served monthly</strong>
+              <span>Trusted by embassies & Fortune 500 clients</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 CLEANING -->
+      <div class="svc-card reverse" id="cleaning">
+        <div class="svc-img">
+          <div class="svc-img-bg" style="background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop');"></div>
+          <div class="svc-img-overlay"></div>
+          <div class="svc-num-watermark">02</div>
+        </div>
+        <div class="svc-body">
+          <div class="svc-label"><span class="num-dot">02</span><i class="fa-solid fa-soap"></i>Cleaning Services</div>
+          <h3 class="svc-title">SPOTLESS.<br>SAFE.<br>SUSTAINABLE.</h3>
+          <p class="svc-desc">From deep industrial cleaning to daily office upkeep, we use eco-certified chemicals and HEPA filtration. Teams trained in biohazard handling, post-construction cleanup, and high-traffic sanitation.</p>
+          <div class="svc-pills">
+            <span class="spill"><i class="fa-solid fa-building"></i>Commercial</span>
+            <span class="spill"><i class="fa-solid fa-house"></i>Residential</span>
+            <span class="spill"><i class="fa-solid fa-wind"></i>Duct Cleaning</span>
+            <span class="spill"><i class="fa-solid fa-droplet"></i>Window & Façade</span>
+            <span class="spill"><i class="fa-solid fa-shield-virus"></i>Biohazard</span>
+            <span class="spill"><i class="fa-solid fa-leaf"></i>Eco-Certified</span>
+          </div>
+          <div class="svc-highlight">
+            <div class="hl-icon"><i class="fa-solid fa-leaf"></i></div>
+            <div class="hl-text">
+              <strong>100% Eco-Certified Products</strong>
+              <span>Zero-harm certified agents across all operations</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 TRANSPORT -->
+      <div class="svc-card" id="transport">
+        <div class="svc-img">
+          <div class="svc-img-bg" style="background-image: url('https://images.unsplash.com/photo-1601584115198-04ecc6da9f4c?q=80&w=2070&auto=format&fit=crop');"></div>
+          <div class="svc-img-overlay"></div>
+          <div class="svc-num-watermark">03</div>
+        </div>
+        <div class="svc-body">
+          <div class="svc-label"><span class="num-dot">03</span><i class="fa-solid fa-truck"></i>Transport & Logistics</div>
+          <h3 class="svc-title">ON TIME.<br>INTACT.<br>ANYWHERE.</h3>
+          <p class="svc-desc">Fleet of 120+ vehicles — refrigerated trucks, flatbeds, light vans. We handle freight forwarding, last-mile delivery, and heavy equipment transport with GPS tracking and 24/7 customer support.</p>
+          <div class="svc-pills">
+            <span class="spill"><i class="fa-solid fa-snowflake"></i>Cold Chain</span>
+            <span class="spill"><i class="fa-solid fa-truck-monster"></i>Heavy Haul</span>
+            <span class="spill"><i class="fa-solid fa-warehouse"></i>Warehousing</span>
+            <span class="spill"><i class="fa-solid fa-bolt"></i>Express Delivery</span>
+            <span class="spill"><i class="fa-solid fa-location-dot"></i>GPS Tracked</span>
+            <span class="spill"><i class="fa-solid fa-headset"></i>24/7 Support</span>
+          </div>
+          <div class="svc-highlight">
+            <div class="hl-icon"><i class="fa-solid fa-clock"></i></div>
+            <div class="hl-text">
+              <strong>98% On-Time Delivery Rate</strong>
+              <span>Real-time GPS fleet tracking on all routes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 SUPPLY -->
+      <div class="svc-card reverse" id="supply">
+        <div class="svc-img">
+          <div class="svc-img-bg" style="background-image: url('https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?q=80&w=2072&auto=format&fit=crop');"></div>
+          <div class="svc-img-overlay"></div>
+          <div class="svc-num-watermark">04</div>
+        </div>
+        <div class="svc-body">
+          <div class="svc-label"><span class="num-dot">04</span><i class="fa-solid fa-boxes-stacked"></i>General Supply</div>
+          <h3 class="svc-title">EVERYTHING<br>FROM<br>A TO Z</h3>
+          <p class="svc-desc">We source and supply office stationery, janitorial products, industrial tools, safety gear, and IT consumables. Bulk or retail, local or imported — we leverage a vast network to keep your business stocked.</p>
+          <div class="svc-pills">
+            <span class="spill"><i class="fa-solid fa-file"></i>Office Supplies</span>
+            <span class="spill"><i class="fa-solid fa-hard-hat"></i>PPE & Safety</span>
+            <span class="spill"><i class="fa-solid fa-broom"></i>Cleaning Gear</span>
+            <span class="spill"><i class="fa-solid fa-computer"></i>IT Consumables</span>
+            <span class="spill"><i class="fa-solid fa-industry"></i>Industrial Tools</span>
+            <span class="spill"><i class="fa-solid fa-cubes"></i>Bulk Orders</span>
+          </div>
+          <div class="svc-highlight">
+            <div class="hl-icon"><i class="fa-solid fa-cubes"></i></div>
+            <div class="hl-text">
+              <strong>10,000+ SKUs Available</strong>
+              <span>Full catalogue delivered within 48 hours</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 CONSTRUCTION -->
+      <div class="svc-card" id="construction">
+        <div class="svc-img">
+          <div class="svc-img-bg" style="background-image: url('https://images.unsplash.com/photo-1541976590-713941681591?q=80&w=2070&auto=format&fit=crop');"></div>
+          <div class="svc-img-overlay"></div>
+          <div class="svc-num-watermark">05</div>
+        </div>
+        <div class="svc-body">
+          <div class="svc-label"><span class="num-dot">05</span><i class="fa-solid fa-helmet-safety"></i>Building & Civil Construction</div>
+          <h3 class="svc-title">CONSTRUCTING<br>THE<br>FUTURE</h3>
+          <p class="svc-desc">From residential renovations to roadworks and drainage systems, our civil engineering team delivers durability. We manage permits, materials, and labour — ensuring projects land on time and up to code.</p>
+          <div class="svc-pills">
+            <span class="spill"><i class="fa-solid fa-road"></i>Earthworks</span>
+            <span class="spill"><i class="fa-solid fa-house"></i>Housing</span>
+            <span class="spill"><i class="fa-solid fa-water"></i>Drainage</span>
+            <span class="spill"><i class="fa-solid fa-hammer"></i>Renovation</span>
+            <span class="spill"><i class="fa-solid fa-building"></i>Commercial</span>
+            <span class="spill"><i class="fa-solid fa-clipboard-check"></i>Permit Management</span>
+          </div>
+          <div class="svc-highlight">
+            <div class="hl-icon"><i class="fa-solid fa-award"></i></div>
+            <div class="hl-text">
+              <strong>ISO-Compliant Project Delivery</strong>
+              <span>350+ completed civil & building projects</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ WHY US ══ -->
+  <section class="why-section">
+    <div class="why-bg"></div>
+    <div class="why-inner">
+      <div class="section-header" style="text-align:center">
+        <p class="section-label">Why Clients Choose Us</p>
+        <h2 style="font-size:clamp(3rem,6vw,5.5rem);line-height:0.9;background:linear-gradient(135deg,#fff,#c8ffe0,var(--g1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-top:0.8rem">BUILT ON<br>RESULTS</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon"><i class="fa-solid fa-calendar-check"></i></div>
+          <div class="why-stat">98%</div>
+          <div class="why-label">On-Time Delivery</div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fa-solid fa-leaf"></i></div>
+          <div class="why-stat">100%</div>
+          <div class="why-label">Eco-Certified Cleaning</div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fa-solid fa-user-shield"></i></div>
+          <div class="why-stat">5+</div>
+          <div class="why-label">Avg. Years Team Experience</div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fa-solid fa-truck-fast"></i></div>
+          <div class="why-stat">120+</div>
+          <div class="why-label">Fleet Vehicles</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TAILORED ══ -->
+  <section class="tailored-section">
+    <div class="tailored-inner">
+      <div>
+        <p class="section-label" style="justify-content:flex-start">Flexible Packages</p>
+        <h2 class="tailored-title">TAILORED TO<br>YOUR SCOPE</h2>
+        <p class="tailored-body">Whether you need one-time catering for 50 guests or a year-long construction supply contract, we adapt. Each division offers custom SLAs, dedicated account managers, and transparent pricing.</p>
+        <ul class="check-list">
+          <li>
+            <div class="chk-icon"><i class="fa-solid fa-check"></i></div>
+            <div><div class="chk-title">24/7 Emergency Cleaning & Transport</div><div class="chk-sub">Round-the-clock response, always available</div></div>
+          </li>
+          <li>
+            <div class="chk-icon"><i class="fa-solid fa-check"></i></div>
+            <div><div class="chk-title">Mixed Service Bundles</div><div class="chk-sub">e.g. catering + cleaning combined for events</div></div>
+          </li>
+          <li>
+            <div class="chk-icon"><i class="fa-solid fa-check"></i></div>
+            <div><div class="chk-title">Free Consultation for Building Projects</div><div class="chk-sub">Expert site assessment at no initial cost</div></div>
+          </li>
+          <li>
+            <div class="chk-icon"><i class="fa-solid fa-check"></i></div>
+            <div><div class="chk-title">Dedicated Account Manager</div><div class="chk-sub">Single point of contact across all services</div></div>
+          </li>
+        </ul>
+      </div>
+      <div class="rating-ring">
+        <div class="ring-outer">
+          <div class="ring-inner">
+            <div class="ring-num">5★</div>
+            <div class="ring-label">Client Rating</div>
+            <div class="ring-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA ══ -->
+  <section id="contact" class="cta-section">
+    <div class="cta-bg"></div>
+    <div class="cta-overlay"></div>
+    <div class="cta-inner">
+      <p class="section-label" style="justify-content:center;margin-bottom:1.2rem">
+        <span style="width:24px;height:1px;background:var(--g1);display:inline-block"></span>
+        Start Your Project
+        <span style="width:24px;height:1px;background:var(--g1);display:inline-block"></span>
+      </p>
+      <h2 class="cta-title">GET YOUR<br>FREE QUOTE</h2>
+      <p class="cta-sub">We usually respond within 2 hours — any industry, any scale.</p>
+      <div class="cta-actions">
+        <a href="mailto:info@eboile.trading" class="btn-primary"><i class="fa-regular fa-envelope" style="margin-right:0.5rem"></i>info@eboile.trading</a>
+        <a href="tel:+254700123456" class="btn-ghost"><i class="fa-solid fa-phone" style="margin-right:0.5rem"></i>+254 700 123 456</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">EBOILE TRADING</a>
+      <p class="footer-services">catering &nbsp;·&nbsp; cleaning &nbsp;·&nbsp; transport &nbsp;·&nbsp; supply &nbsp;·&nbsp; building & civil</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <span>© 2025 <span class="accent">Eboile Trading</span>. All rights reserved.</span>
+      <span>East Africa Hub · Nairobi & Mombasa</span>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        nav.style.background = 'rgba(3,13,7,0.97)';
+        nav.style.borderBottomColor = 'rgba(0,255,135,0.12)';
+      } else {
+        nav.style.background = 'linear-gradient(180deg, rgba(3,13,7,0.92) 0%, transparent 100%)';
+        nav.style.borderBottomColor = 'rgba(0,255,135,0.08)';
+      }
+    });
+
+    // smooth scroll for hero nav pills
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eboile Trading • About Us</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --g1: #00ff87;
+      --g2: #00c4a7;
+      --dark: #030d07;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--dark);
+      color: #e0ffe8;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, .display { font-family: 'Bebas Neue', sans-serif; }
+    .syne { font-family: 'Syne', sans-serif; }
+
+    /* noise */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 9999; opacity: 0.35;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      padding: 1.4rem 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: linear-gradient(180deg, rgba(3,13,7,0.92) 0%, transparent 100%);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(0,255,135,0.08);
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.08em;
+      background: linear-gradient(90deg, #c8ffde, #00ff87);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(200,255,220,0.7); text-decoration: none; position: relative; transition: color 0.3s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: linear-gradient(90deg, var(--g1), var(--g2));
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--g1); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.65rem 1.8rem; border-radius: 100px;
+      border: 1px solid rgba(0,255,135,0.5);
+      color: var(--g1); text-decoration: none;
+      background: rgba(0,255,135,0.06); backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    .nav-cta:hover {
+      background: rgba(0,255,135,0.18); border-color: var(--g1);
+      box-shadow: 0 0 30px rgba(0,255,135,0.25); transform: translateY(-1px);
+    }
+    .mob-menu-btn { display: none; background: none; border: none; cursor: pointer; color: var(--g1); font-size: 1.4rem; }
+
+    /* ── HERO ── */
+    .about-hero {
+      position: relative; height: 80vh; min-height: 620px;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    .about-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1577412647305-991150c7d163?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover; background-position: center;
+      filter: brightness(0.28) saturate(1.4);
+      transform: scale(1.06); transition: transform 8s ease;
+    }
+    .about-hero:hover .about-hero-bg { transform: scale(1.0); }
+    .about-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(3,13,7,0.95) 0%, rgba(3,13,7,0.4) 55%, rgba(3,13,7,0.88) 100%);
+    }
+    .hero-vein {
+      position: absolute; top: -20%; left: 40%; width: 2px; height: 140%;
+      background: linear-gradient(180deg, transparent, rgba(0,255,135,0.2) 40%, rgba(0,196,167,0.12) 70%, transparent);
+      transform: rotate(-15deg); filter: blur(4px);
+      animation: veinPulse 4s ease-in-out infinite;
+    }
+    @keyframes veinPulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+
+    .hero-content { position: relative; z-index: 10; text-align: center; padding: 0 2rem; max-width: 950px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.8rem;
+      font-family: 'Syne', sans-serif; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.35em; text-transform: uppercase; color: var(--g1);
+      padding: 0.5rem 1.4rem; border: 1px solid rgba(0,255,135,0.3); border-radius: 100px;
+      background: rgba(0,255,135,0.07); backdrop-filter: blur(10px); margin-bottom: 2rem;
+      animation: fadeUp 0.8s ease both;
+    }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--g1); box-shadow: 0 0 10px var(--g1); animation: blink 2s ease infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    .hero-content h1 {
+      font-size: clamp(4.5rem, 11vw, 12rem); line-height: 0.9; letter-spacing: -0.01em;
+      background: linear-gradient(145deg, #ffffff 0%, #d0ffea 40%, var(--g1) 80%, var(--g2) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 60px rgba(0,255,135,0.12));
+      animation: fadeUp 0.9s 0.1s ease both;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.25rem); font-weight: 300; font-style: italic;
+      color: rgba(200,255,220,0.65); letter-spacing: 0.04em; margin-top: 1.5rem;
+      animation: fadeUp 1s 0.2s ease both;
+    }
+    .hero-chips {
+      display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin-top: 2.5rem;
+      animation: fadeUp 1s 0.3s ease both;
+    }
+    .hero-chip {
+      font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.5rem 1.3rem; border-radius: 100px;
+      border: 1px solid rgba(0,255,135,0.2); background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(10px); color: rgba(200,255,220,0.65);
+      transition: all 0.3s;
+    }
+    .hero-chip:hover { border-color: var(--g1); color: var(--g1); background: rgba(0,255,135,0.1); transform: translateY(-2px); }
+
+    .scroll-cue {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.6rem; z-index: 10;
+      animation: fadeUp 1s 0.8s ease both;
+    }
+    .scroll-cue span { font-family: 'Syne', sans-serif; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(0,255,135,0.5); }
+    .scroll-line { width: 1px; height: 50px; background: linear-gradient(180deg, rgba(0,255,135,0.6), transparent); animation: scrollDrop 2s ease infinite; }
+    @keyframes scrollDrop { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform:scaleY(1);transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+    /* ── STORY ── */
+    .story-section {
+      padding: 8rem 0; position: relative; overflow: hidden;
+      background: linear-gradient(160deg, #041209 0%, #071510 60%, #041209 100%);
+    }
+    .story-bg-img {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover; background-position: center;
+      filter: brightness(0.07) grayscale(1);
+    }
+    .grid-pattern {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(0,255,135,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,135,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .story-inner {
+      position: relative; z-index: 2;
+      max-width: 1200px; margin: 0 auto; padding: 0 4rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+    }
+    .section-label {
+      font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase; color: var(--g1);
+      display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem;
+    }
+    .section-label::before { content: ''; width: 30px; height: 1px; background: var(--g1); }
+    .story-title {
+      font-size: clamp(2.8rem, 5vw, 4.5rem); line-height: 0.92;
+      background: linear-gradient(145deg, #fff, #c8ffe0, var(--g1));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: 2rem;
+    }
+    .story-body { font-size: 1rem; line-height: 1.85; color: rgba(180,240,200,0.55); font-weight: 300; }
+    .story-body p + p { margin-top: 1.2rem; }
+    .story-metrics { display: flex; gap: 1.5rem; margin-top: 2.5rem; flex-wrap: wrap; }
+    .metric-chip {
+      font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.6rem 1.3rem; border-radius: 100px;
+      border: 1px solid rgba(0,255,135,0.2); background: rgba(0,255,135,0.05);
+      backdrop-filter: blur(10px); color: rgba(180,255,210,0.7);
+      display: flex; align-items: center; gap: 0.6rem; transition: all 0.3s;
+    }
+    .metric-chip:hover { border-color: var(--g1); color: var(--g1); background: rgba(0,255,135,0.12); transform: translateY(-2px); }
+    .metric-chip i { color: var(--g1); font-size: 0.8rem; }
+
+    /* mosaic grid */
+    .mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .mosaic-img {
+      border-radius: 1.2rem; overflow: hidden; height: 200px;
+      background-size: cover; background-position: center;
+      border: 1px solid rgba(0,255,135,0.12);
+      position: relative; transition: all 0.5s ease;
+    }
+    .mosaic-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(3,13,7,0.6), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .mosaic-img:hover { transform: scale(1.03); border-color: rgba(0,255,135,0.4); box-shadow: 0 12px 40px rgba(0,255,135,0.15); }
+    .mosaic-img:hover::after { opacity: 1; }
+    .mosaic-img.tall { grid-row: span 2; height: auto; min-height: 415px; }
+
+    /* ── VALUES ── */
+    .values-section {
+      padding: 8rem 0; position: relative; overflow: hidden;
+      background: linear-gradient(180deg, #071510 0%, #041209 100%);
+    }
+    .values-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?q=80&w=2072&auto=format&fit=crop');
+      background-size: cover; background-attachment: fixed;
+      filter: brightness(0.07) saturate(0.5);
+    }
+    .values-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
+    .section-header { text-align: center; margin-bottom: 5rem; }
+    .section-title {
+      font-size: clamp(3rem, 6vw, 6rem); line-height: 0.9;
+      background: linear-gradient(135deg, #fff, #c8ffe0, var(--g1));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-top: 1rem;
+    }
+    .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .value-card {
+      background: rgba(0,255,135,0.03);
+      border: 1px solid rgba(0,255,135,0.1);
+      border-radius: 1.5rem; padding: 2.5rem 2rem;
+      backdrop-filter: blur(20px); position: relative; overflow: hidden;
+      transition: all 0.4s ease; cursor: default;
+    }
+    .value-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--g1), transparent);
+      opacity: 0; transition: opacity 0.4s;
+    }
+    .value-card::after {
+      content: ''; position: absolute; bottom: -60px; right: -60px;
+      width: 150px; height: 150px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,255,135,0.07) 0%, transparent 70%);
+      transition: all 0.5s;
+    }
+    .value-card:hover {
+      background: rgba(0,255,135,0.07);
+      border-color: rgba(0,255,135,0.3);
+      transform: translateY(-8px);
+      box-shadow: 0 25px 60px rgba(0,255,135,0.12);
+    }
+    .value-card:hover::before { opacity: 1; }
+    .value-card:hover::after { bottom: -20px; right: -20px; }
+    .value-icon {
+      width: 56px; height: 56px; border-radius: 14px; margin-bottom: 1.8rem;
+      background: linear-gradient(135deg, rgba(0,255,135,0.15), rgba(0,196,167,0.08));
+      border: 1px solid rgba(0,255,135,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; color: var(--g1);
+      transition: all 0.3s;
+    }
+    .value-card:hover .value-icon { box-shadow: 0 0 25px rgba(0,255,135,0.3); }
+    .value-title {
+      font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700;
+      color: rgba(220,255,235,0.95); margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .value-text { font-size: 0.88rem; line-height: 1.7; color: rgba(150,220,175,0.5); font-weight: 300; }
+
+    /* ── PILLARS ── */
+    .pillars-section {
+      padding: 8rem 0; position: relative;
+      background: linear-gradient(160deg, #030d07 0%, #071510 100%);
+    }
+    .pillars-inner { max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
+    .pillars-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-top: 4rem; }
+    .pillar-card {
+      border-radius: 1.2rem; overflow: hidden; height: 320px;
+      position: relative; border: 1px solid rgba(0,255,135,0.08);
+      transition: all 0.5s ease; cursor: default;
+    }
+    .pillar-bg {
+      position: absolute; inset: 0; background-size: cover; background-position: center;
+      filter: brightness(0.35) saturate(1.2);
+      transition: filter 0.5s ease, transform 0.6s ease;
+    }
+    .pillar-card:hover .pillar-bg { filter: brightness(0.55) saturate(1.6); transform: scale(1.08); }
+    .pillar-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(3,13,7,0.95) 0%, rgba(3,13,7,0.4) 50%, transparent 100%);
+    }
+    .pillar-card:hover { border-color: rgba(0,255,135,0.35); box-shadow: 0 20px 50px rgba(0,255,135,0.15); transform: translateY(-6px); }
+    .pillar-content {
+      position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem;
+      transform: translateY(8px); transition: transform 0.4s ease;
+    }
+    .pillar-card:hover .pillar-content { transform: translateY(0); }
+    .pillar-icon-wrap {
+      width: 40px; height: 40px; border-radius: 10px; margin-bottom: 0.8rem;
+      background: rgba(0,255,135,0.12); border: 1px solid rgba(0,255,135,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: var(--g1);
+      transition: all 0.3s;
+    }
+    .pillar-card:hover .pillar-icon-wrap { background: rgba(0,255,135,0.2); box-shadow: 0 0 20px rgba(0,255,135,0.25); }
+    .pillar-title {
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.02em;
+      background: linear-gradient(135deg, #fff, var(--g1));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1;
+    }
+    .pillar-sub {
+      font-family: 'Syne', sans-serif; font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase; color: rgba(0,255,135,0.5);
+      margin-top: 0.3rem; opacity: 0; transform: translateY(6px);
+      transition: all 0.4s 0.05s ease;
+    }
+    .pillar-card:hover .pillar-sub { opacity: 1; transform: translateY(0); }
+
+    /* ── TEAM ── */
+    .team-section {
+      padding: 8rem 0; position: relative;
+      background: linear-gradient(180deg, #041209 0%, #071510 50%, #041209 100%);
+    }
+    .team-inner { max-width: 1100px; margin: 0 auto; padding: 0 4rem; }
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 5rem; }
+    .team-card {
+      background: rgba(0,255,135,0.03);
+      border: 1px solid rgba(0,255,135,0.1); border-radius: 1.8rem;
+      padding: 2.5rem 2rem; text-align: center;
+      backdrop-filter: blur(20px); position: relative; overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    .team-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(0,255,135,0.05) 0%, transparent 65%);
+      opacity: 0; transition: opacity 0.4s;
+    }
+    .team-card:hover { border-color: rgba(0,255,135,0.3); transform: translateY(-8px); box-shadow: 0 25px 60px rgba(0,255,135,0.12); }
+    .team-card:hover::before { opacity: 1; }
+    .team-avatar {
+      width: 110px; height: 110px; border-radius: 50%; margin: 0 auto 1.5rem;
+      background-size: cover; background-position: center;
+      border: 2px solid rgba(0,255,135,0.2);
+      position: relative; z-index: 1;
+      box-shadow: 0 0 0 6px rgba(0,255,135,0.05);
+      transition: all 0.4s;
+    }
+    .team-card:hover .team-avatar { border-color: rgba(0,255,135,0.5); box-shadow: 0 0 0 8px rgba(0,255,135,0.08), 0 0 30px rgba(0,255,135,0.2); }
+    .team-name {
+      font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700;
+      color: rgba(220,255,235,0.95); position: relative; z-index: 1;
+    }
+    .team-role {
+      font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--g1);
+      margin-top: 0.3rem; position: relative; z-index: 1;
+    }
+    .team-bio { font-size: 0.85rem; line-height: 1.65; color: rgba(150,215,175,0.45); margin-top: 1rem; font-weight: 300; position: relative; z-index: 1; }
+    .team-socials { display: flex; gap: 0.6rem; justify-content: center; margin-top: 1.5rem; position: relative; z-index: 1; }
+    .team-social {
+      width: 32px; height: 32px; border-radius: 8px;
+      border: 1px solid rgba(0,255,135,0.15); background: rgba(0,255,135,0.05);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(0,255,135,0.4); font-size: 0.75rem; text-decoration: none;
+      transition: all 0.3s;
+    }
+    .team-social:hover { border-color: var(--g1); color: var(--g1); background: rgba(0,255,135,0.12); transform: translateY(-2px); }
+
+    /* ── STATS BAND ── */
+    .stats-band {
+      padding: 5rem 0;
+      background: linear-gradient(180deg, #061510 0%, #041209 100%);
+      position: relative; overflow: hidden;
+    }
+    .stats-band::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(0,255,135,0.3),transparent); }
+    .stats-band::after { content:''; position:absolute; bottom:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(0,255,135,0.3),transparent); }
+    .stats-grid { max-width: 1000px; margin: 0 auto; padding: 0 3rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+    .stat-item { text-align: center; padding: 2.5rem 1.5rem; position: relative; transition: all 0.3s; }
+    .stat-item::before { content: ''; position: absolute; top: 20%; right: 0; width: 1px; height: 60%; background: linear-gradient(180deg, transparent, rgba(0,255,135,0.2), transparent); }
+    .stat-item:last-child::before { display: none; }
+    .stat-item:hover { background: rgba(0,255,135,0.03); border-radius: 1rem; }
+    .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; background: linear-gradient(135deg, var(--g1), var(--g2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; }
+    .stat-label { font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(150,220,180,0.5); margin-top: 0.5rem; }
+
+    /* ── QUOTE BAND ── */
+    .quote-band {
+      padding: 6rem 0; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #041209, #071510, #041209);
+    }
+    .quote-inner { max-width: 800px; margin: 0 auto; padding: 0 4rem; text-align: center; position: relative; z-index: 2; }
+    .quote-mark {
+      font-family: 'Bebas Neue', sans-serif; font-size: 10rem; line-height: 0.7;
+      background: linear-gradient(135deg, rgba(0,255,135,0.12), transparent);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      display: block; margin-bottom: -1rem;
+    }
+    .quote-text {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-style: italic; font-weight: 300;
+      color: rgba(200,255,220,0.75); line-height: 1.75; letter-spacing: 0.01em;
+    }
+    .quote-author {
+      font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.25em; text-transform: uppercase; color: var(--g1);
+      margin-top: 2rem; display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+    }
+    .quote-author::before, .quote-author::after { content: ''; width: 30px; height: 1px; background: rgba(0,255,135,0.4); }
+
+    /* ── CONTACT CTA ── */
+    .cta-section {
+      padding: 8rem 0; position: relative; overflow: hidden;
+      background: var(--dark);
+    }
+    .cta-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=2069&auto=format&fit=crop'); background-size: cover; background-position: center; filter: brightness(0.08) saturate(0.5); }
+    .cta-overlay { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(3,13,7,0.97) 0%, rgba(3,13,7,0.82) 50%, rgba(3,13,7,0.97) 100%); }
+    .cta-inner { position: relative; z-index: 10; max-width: 800px; margin: 0 auto; padding: 0 3rem; text-align: center; }
+    .cta-title { font-size: clamp(3.5rem, 8vw, 8rem); line-height: 0.9; background: linear-gradient(135deg, #fff, #c8ffe0, var(--g1)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1.2rem; }
+    .cta-sub { font-size: 1rem; font-weight: 300; color: rgba(180,240,200,0.45); margin-bottom: 3.5rem; }
+    .cta-actions { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 1rem 2.8rem; border-radius: 100px; border: none;
+      background: linear-gradient(135deg, #00ff87, #00c4a7);
+      color: #030d07; text-decoration: none; cursor: pointer;
+      position: relative; overflow: hidden; transition: all 0.3s ease;
+      box-shadow: 0 8px 30px rgba(0,255,135,0.35); display: inline-block;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 50px rgba(0,255,135,0.5); }
+    .btn-ghost {
+      font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 1rem 2.8rem; border-radius: 100px;
+      border: 1.5px solid rgba(0,255,135,0.4); background: rgba(0,255,135,0.05);
+      backdrop-filter: blur(12px); color: rgba(200,255,220,0.9); text-decoration: none;
+      transition: all 0.3s ease; display: inline-block;
+    }
+    .btn-ghost:hover { border-color: var(--g1); background: rgba(0,255,135,0.12); color: var(--g1); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,255,135,0.2); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: linear-gradient(180deg, #030d07 0%, #020c06 100%);
+      border-top: 1px solid rgba(0,255,135,0.08); padding: 4rem 0 2.5rem;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 4rem;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem;
+    }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 0.05em; background: linear-gradient(135deg, #c8ffde, var(--g1)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+    .footer-services { font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(120,180,150,0.35); }
+    .footer-social { display: flex; gap: 0.8rem; }
+    .social-btn { width: 36px; height: 36px; border-radius: 9px; border: 1px solid rgba(0,255,135,0.15); background: rgba(0,255,135,0.04); display: flex; align-items: center; justify-content: center; color: rgba(0,255,135,0.4); font-size: 0.85rem; text-decoration: none; transition: all 0.3s; }
+    .social-btn:hover { border-color: var(--g1); color: var(--g1); background: rgba(0,255,135,0.12); transform: translateY(-2px); }
+    .footer-copy { max-width: 1200px; margin: 2.5rem auto 0; padding: 1.5rem 4rem 0; border-top: 1px solid rgba(0,255,135,0.06); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+    .footer-copy span { font-size: 0.75rem; color: rgba(120,180,150,0.3); }
+    .footer-copy .accent { color: rgba(0,255,135,0.45); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links, .nav-cta { display: none; }
+      .mob-menu-btn { display: block; }
+      .story-inner, .team-grid { grid-template-columns: 1fr; gap: 3rem; padding: 0 2rem; }
+      .values-grid { grid-template-columns: 1fr 1fr; padding: 0 2rem; }
+      .pillars-row { grid-template-columns: repeat(2, 1fr); padding: 0; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .values-inner, .pillars-inner, .team-inner { padding: 0 2rem; }
+      .hero-content h1 { font-size: 4.5rem; }
+      .cta-inner, .footer-inner, .footer-copy { padding: 0 2rem; }
+      .mosaic { grid-template-columns: 1fr 1fr; }
+      .mosaic-img.tall { grid-row: span 1; min-height: 200px; }
+    }
+    @media (max-width: 540px) {
+      .values-grid { grid-template-columns: 1fr; }
+      .pillars-row { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAV ══ -->
+  <nav id="main-nav">
+    <a href="index.html" class="nav-logo">Eboile<span style="font-size:1.3rem;opacity:0.6"> Trading</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#values">Values</a></li>
+      <li><a href="#team">Team</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get a Quote</a>
+    <button class="mob-menu-btn"><i class="fa-solid fa-bars"></i></button>
+  </nav>
+
+  <!-- ══ ABOUT HERO ══ -->
+  <section class="about-hero">
+    <div class="about-hero-bg"></div>
+    <div class="about-hero-overlay"></div>
+    <div class="hero-vein"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="dot"></div>
+        Our Story &nbsp;·&nbsp; Est. 2012
+        <div class="dot"></div>
+      </div>
+
+      <h1>ABOUT<br>EBOILE</h1>
+
+      <p class="hero-sub">one team, five pillars — built on integrity, driven by excellence</p>
+
+      <div class="hero-chips">
+        <span class="hero-chip"><i class="fa-regular fa-clock" style="margin-right:0.4rem"></i>13+ Years</span>
+        <span class="hero-chip"><i class="fa-regular fa-handshake" style="margin-right:0.4rem"></i>500+ Partners</span>
+        <span class="hero-chip"><i class="fa-regular fa-map" style="margin-right:0.4rem"></i>East Africa</span>
+        <span class="hero-chip"><i class="fa-solid fa-people-group" style="margin-right:0.4rem"></i>1,200+ Clients</span>
+      </div>
+    </div>
+
+    <div class="scroll-cue">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ══ OUR STORY ══ -->
+  <section id="story" class="story-section">
+    <div class="story-bg-img"></div>
+    <div class="grid-pattern"></div>
+    <div class="story-inner">
+      <div>
+        <p class="section-label">Our Roots</p>
+        <h2 class="story-title">FROM LOCAL<br>START TO<br>REGIONAL FORCE</h2>
+        <div class="story-body">
+          <p>Eboile Trading began in 2012 as a small catering cooperative in Nairobi. Driven by a vision to deliver excellence across industries, we expanded into cleaning and transport by 2015, and into general merchandise supply and civil construction shortly after.</p>
+          <p>Today we stand as a trusted multi-service partner — blending the agility of a local team with the capacity to handle national-scale projects. Each division carries the same founding spirit: hands-on quality, transparent relationships, and results that outlast the contract.</p>
+        </div>
+        <div class="story-metrics">
+          <span class="metric-chip"><i class="fa-solid fa-kitchen-set"></i>15,000+ meals/month</span>
+          <span class="metric-chip"><i class="fa-solid fa-truck"></i>24/7 logistics</span>
+          <span class="metric-chip"><i class="fa-solid fa-helmet-safety"></i>350+ civil projects</span>
+        </div>
+      </div>
+
+      <div class="mosaic">
+        <div class="mosaic-img tall" style="background-image: url('https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1974&auto=format&fit=crop');"></div>
+        <div class="mosaic-img" style="background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1974&auto=format&fit=crop');"></div>
+        <div class="mosaic-img" style="background-image: url('https://images.unsplash.com/photo-1601584115198-04ecc6da9f4c?q=80&w=1974&auto=format&fit=crop');"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ STATS ══ -->
+  <div class="stats-band">
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-num">350+</div><div class="stat-label">Projects Delivered</div></div>
+      <div class="stat-item"><div class="stat-num">120+</div><div class="stat-label">Fleet Vehicles</div></div>
+      <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">Regions Served</div></div>
+      <div class="stat-item"><div class="stat-num">1,200+</div><div class="stat-label">Active Clients</div></div>
+    </div>
+  </div>
+
+  <!-- ══ CORE VALUES ══ -->
+  <section id="values" class="values-section">
+    <div class="values-bg"></div>
+    <div class="values-inner">
+      <div class="section-header">
+        <p class="section-label" style="justify-content:center;margin-bottom:1rem"><span style="width:30px;height:1px;background:var(--g1);display:inline-block"></span>&nbsp; Driving Principles &nbsp;<span style="width:30px;height:1px;background:var(--g1);display:inline-block"></span></p>
+        <h2 class="section-title">VALUES WE<br>BUILD ON</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon"><i class="fa-solid fa-gem"></i></div>
+          <div class="value-title">Integrity</div>
+          <p class="value-text">Transparent contracts and ethical sourcing — the foundation beneath every civil project, supply order, and service agreement.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i class="fa-solid fa-star"></i></div>
+          <div class="value-title">Excellence</div>
+          <p class="value-text">From gourmet catering to pristine cleaning, we never ship a mediocre result. Quality is our non-negotiable standard.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i class="fa-solid fa-bolt"></i></div>
+          <div class="value-title">Agility</div>
+          <p class="value-text">Our transport and operations team adapts to any timeline, challenge, or scale shift — 24/7, without exception.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><i class="fa-solid fa-leaf"></i></div>
+          <div class="value-title">Sustainability</div>
+          <p class="value-text">Solar-powered depots, eco-friendly cleaning agents, zero-waste catering. Green thinking embedded in every division.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FIVE PILLARS ══ -->
+  <section class="pillars-section">
+    <div class="pillars-inner">
+      <div class="section-header" style="text-align:left">
+        <p class="section-label">One Group, Five Divisions</p>
+        <h2 class="section-title">OUR SERVICE<br>PILLARS</h2>
+      </div>
+      <div class="pillars-row">
+        <div class="pillar-card">
+          <div class="pillar-bg" style="background-image: url('https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1974&auto=format&fit=crop');"></div>
+          <div class="pillar-overlay"></div>
+          <div class="pillar-content">
+            <div class="pillar-icon-wrap"><i class="fa-solid fa-kitchen-set"></i></div>
+            <div class="pillar-title">CATERING</div>
+            <div class="pillar-sub">Events · Daily delivery · Banquets</div>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-bg" style="background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1974&auto=format&fit=crop');"></div>
+          <div class="pillar-overlay"></div>
+          <div class="pillar-content">
+            <div class="pillar-icon-wrap"><i class="fa-solid fa-soap"></i></div>
+            <div class="pillar-title">CLEANING</div>
+            <div class="pillar-sub">Industrial · Eco-friendly · 24/7</div>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-bg" style="background-image: url('https://images.unsplash.com/photo-1601584115198-04ecc6da9f4c?q=80&w=1974&auto=format&fit=crop');"></div>
+          <div class="pillar-overlay"></div>
+          <div class="pillar-content">
+            <div class="pillar-icon-wrap"><i class="fa-solid fa-truck"></i></div>
+            <div class="pillar-title">TRANSPORT</div>
+            <div class="pillar-sub">Cold chain · Haulage · Fleet</div>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-bg" style="background-image: url('https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?q=80&w=2072&auto=format&fit=crop');"></div>
+          <div class="pillar-overlay"></div>
+          <div class="pillar-content">
+            <div class="pillar-icon-wrap"><i class="fa-solid fa-boxes-stacked"></i></div>
+            <div class="pillar-title">SUPPLY</div>
+            <div class="pillar-sub">Wholesale · Sourcing · Bulk</div>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-bg" style="background-image: url('https://images.unsplash.com/photo-1541976590-713941681591?q=80&w=1974&auto=format&fit=crop');"></div>
+          <div class="pillar-overlay"></div>
+          <div class="pillar-content">
+            <div class="pillar-icon-wrap"><i class="fa-solid fa-helmet-safety"></i></div>
+            <div class="pillar-title">BUILDING</div>
+            <div class="pillar-sub">Civil · Roadworks · Construction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TEAM ══ -->
+  <section id="team" class="team-section">
+    <div class="team-inner">
+      <div class="section-header" style="text-align:center">
+        <p class="section-label" style="justify-content:center"><span style="width:30px;height:1px;background:var(--g1);display:inline-block"></span>&nbsp; Experienced Guidance &nbsp;<span style="width:30px;height:1px;background:var(--g1);display:inline-block"></span></p>
+        <h2 class="section-title">CORE TEAM</h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar" style="background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop');"></div>
+          <div class="team-name">James Mboya</div>
+          <div class="team-role">Founder & CEO</div>
+          <p class="team-bio">20+ years in construction & logistics. The architect of our five-pillar model and the vision behind Eboile's regional expansion.</p>
+          <div class="team-socials">
+            <a href="#" class="team-social"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="team-social"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="team-social"><i class="fa-regular fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop');"></div>
+          <div class="team-name">Fatima Hassan</div>
+          <div class="team-role">Director of Operations</div>
+          <p class="team-bio">Hospitality management background with mastery in catering & cleaning standards. Ensures every delivery is five-star.</p>
+          <div class="team-socials">
+            <a href="#" class="team-social"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="team-social"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="team-social"><i class="fa-regular fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background-image: url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop');"></div>
+          <div class="team-name">Samuel Omondi</div>
+          <div class="team-role">Head of Supply Chain</div>
+          <p class="team-bio">Specialist in merchandise sourcing and transport efficiency. Keeps 120+ vehicles and 10,000+ SKUs moving at peak performance.</p>
+          <div class="team-socials">
+            <a href="#" class="team-social"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="team-social"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="team-social"><i class="fa-regular fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ QUOTE ══ -->
+  <section class="quote-band">
+    <div class="quote-inner">
+      <span class="quote-mark">"</span>
+      <p class="quote-text">We don't just deliver services — we build lasting partnerships across catering, cleaning, transport, supply, and construction. Every contract is a commitment to the communities we serve.</p>
+      <div class="quote-author">James Mboya, Founder & CEO</div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT CTA ══ -->
+  <section id="contact" class="cta-section">
+    <div class="cta-bg"></div>
+    <div class="cta-overlay"></div>
+    <div class="cta-inner">
+      <p class="section-label" style="justify-content:center;margin-bottom:1.2rem"><span style="width:24px;height:1px;background:var(--g1);display:inline-block"></span>&nbsp; Ready to Work Together &nbsp;<span style="width:24px;height:1px;background:var(--g1);display:inline-block"></span></p>
+      <h2 class="cta-title">LET'S BUILD<br>TOGETHER</h2>
+      <p class="cta-sub">Reach out — we respond within 2 hours.</p>
+      <div class="cta-actions">
+        <a href="mailto:info@eboile.trading" class="btn-primary"><i class="fa-regular fa-envelope" style="margin-right:0.5rem"></i>info@eboile.trading</a>
+        <a href="tel:+254700123456" class="btn-ghost"><i class="fa-solid fa-phone" style="margin-right:0.5rem"></i>+254 700 123 456</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">EBOILE TRADING</a>
+      <p class="footer-services">catering &nbsp;·&nbsp; cleaning &nbsp;·&nbsp; transport &nbsp;·&nbsp; supply &nbsp;·&nbsp; building & civil</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <span>© 2025 <span class="accent">Eboile Trading</span>. All rights reserved.</span>
+      <span>East Africa Hub · Nairobi & Mombasa</span>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        nav.style.background = 'rgba(3,13,7,0.97)';
+        nav.style.borderBottomColor = 'rgba(0,255,135,0.12)';
+      } else {
+        nav.style.background = 'linear-gradient(180deg, rgba(3,13,7,0.92) 0%, transparent 100%)';
+        nav.style.borderBottomColor = 'rgba(0,255,135,0.08)';
+      }
+    });
+  </script>
+</body>
+</html>

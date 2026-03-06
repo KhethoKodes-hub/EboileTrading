@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eboile Trading • multi‑service excellence</title>
+  <!-- Tailwind via CDN + custom layer for extra uniqueness -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome 6 (free) for crisp icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+    body { font-family: 'Space Grotesk', sans-serif; }
+    /* custom glassmorphism overlay & gradient shifts */
+    .hero-overlay {
+      background: linear-gradient(127deg, rgba(0,0,0,0.65) 0%, rgba(0, 20, 10, 0.5) 70%);
+      backdrop-filter: blur(2px);
+    }
+    .unique-grid-bg {
+      background-image: 
+        linear-gradient(rgba(180, 240, 200, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(180, 240, 200, 0.1) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .gradient-border {
+      border: 1px solid transparent;
+      background: linear-gradient(145deg, #0b2f1f, #1b4e3a) padding-box, 
+                  linear-gradient(145deg, #7ef0ba, #2b7a4b) border-box;
+      border-radius: 1.5rem;
+    }
+    .btn-prime {
+      background: linear-gradient(135deg, #1f7042, #0e4d2b);
+      transition: all 0.2s ease;
+    }
+    .btn-prime:hover {
+      background: linear-gradient(135deg, #2b8f52, #146b36);
+      transform: scale(1.02) translateY(-2px);
+      box-shadow: 0 20px 25px -5px rgba(0,180,100,0.3);
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid #3fe88e;
+    }
+    footer i { color: #9ef0c0; }
+  </style>
+</head>
+<body class="bg-[#0c1f16] text-gray-200 antialiased unique-grid-bg">
+
+  <!-- NAVIGATION / HEADER (lightweight) -->
+  <nav class="fixed top-0 left-0 w-full z-50 py-4 px-6 md:px-12 flex justify-between items-center bg-[#0a1f14]/80 backdrop-blur-xl border-b border-[#2b6e4a]/30">
+    <a href="#" class="text-3xl font-bold tracking-tighter bg-gradient-to-r from-[#b0ffd0] to-[#58d68d] bg-clip-text text-transparent">EBOILE<span class="text-[#45c27c] text-xl font-light ml-1">TRADING</span></a>
+    <div class="hidden md:flex space-x-9 text-sm font-medium">
+      <a href="#" class="hover:text-[#80f2b0] transition">HOME</a>
+      <a href="#services" class="hover:text-[#80f2b0] transition">SERVICES</a>
+      <a href="#about" class="hover:text-[#80f2b0] transition">ABOUT</a>
+      <a href="#contact" class="hover:text-[#80f2b0] transition">CONTACT</a>
+    </div>
+    <button class="md:hidden text-2xl"><i class="fa-solid fa-bars text-[#8ae8b0]"></i></button>
+  </nav>
+
+  <!-- MAIN HERO (master) — general trading / multi‑service statement -->
+  <section class="relative h-screen flex items-center justify-center overflow-hidden">
+    <!-- background image: general supply & building/civil vibe – dynamic warehouse + construction silhouette -->
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105" style="background-image: url('https://images.unsplash.com/photo-1586528116311-8431f2c72e6a?q=80&w=2070&auto=format&fit=crop'); filter: brightness(0.5) saturate(1.3);"></div>
+    <div class="absolute inset-0 hero-overlay"></div>
+    
+    <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+      <span class="inline-block px-5 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-[#47d185] text-[#bef5d5] text-sm tracking-widest mb-7">✦ SINCE 2012 ✦</span>
+      <h1 class="text-6xl md:text-8xl font-black uppercase leading-[1.1] tracking-tighter bg-gradient-to-r from-[#d0ffec] via-[#a0f0c0] to-[#4ad37b] bg-clip-text text-transparent drop-shadow-2xl">Eboile Trading</h1>
+      <p class="text-2xl md:text-3xl mt-6 font-light text-[#daf8e7] max-w-3xl mx-auto">catering · cleaning · transport · general supply · building & civil construction</p>
+      <div class="flex flex-wrap gap-5 justify-center mt-12">
+        <a href="#services" class="btn-prime px-10 py-5 rounded-full text-lg font-semibold shadow-2xl shadow-green-900/50 flex items-center gap-2"><i class="fa-regular fa-compass"></i> discover services</a>
+        <a href="#contact" class="px-10 py-5 rounded-full text-lg font-semibold border-2 border-[#3fe88e]/70 bg-transparent backdrop-blur-sm hover:bg-[#3fe88e]/20 transition"><i class="fa-regular fa-handshake mr-2"></i>request quote</a>
+      </div>
+    </div>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-3xl text-[#7fe0a8]"><i class="fa-regular fa-circle-down"></i></div>
+  </section>
+
+  <!-- ====== FIVE DISTINCT HERO SECTIONS (each with specific background) ====== -->
+  <div id="services" class="relative -mt-2"></div> <!-- anchor -->
+
+  <!-- 1. CATERING -->
+  <section class="relative w-full h-[90vh] flex items-center border-t border-[#297a4d]/40 shadow-2xl">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070&auto=format&fit=crop'); filter: brightness(0.45) contrast(1.1);"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#072112] via-transparent to-[#03170b]"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
+      <div class="md:w-2/3">
+        <div class="flex items-center gap-3 text-[#a0f0c0] text-xl mb-2"><i class="fa-solid fa-kitchen-set text-3xl"></i><span class="tracking-[0.3em]">01 — CATERING</span></div>
+        <h2 class="text-5xl md:text-7xl font-bold leading-tight bg-gradient-to-r from-[#fbffdb] to-[#b6f7cf] bg-clip-text text-transparent">FEAST & EVENT</h2>
+        <p class="text-gray-200 text-xl md:text-2xl mt-5 max-w-xl drop-shadow">Corporate catering, banquets, and bespoke menus prepared with the freshest ingredients. We turn any gathering into a culinary memory.</p>
+        <div class="mt-8 flex gap-4">
+          <span class="px-6 py-3 bg-black/30 backdrop-blur-sm rounded-full border border-[#59d186]">weddings & galas</span>
+          <span class="px-6 py-3 bg-black/30 backdrop-blur-sm rounded-full border border-[#59d186]">daily meal delivery</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. CLEANING -->
+  <section class="relative w-full h-[90vh] flex items-center border-t border-[#297a4d]/40">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop'); filter: brightness(0.4) saturate(1.2);"></div>
+    <div class="absolute inset-0 bg-gradient-to-l from-[#051f10] via-transparent to-[#020e07]"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-8 w-full text-right">
+      <div class="md:w-2/3 ml-auto">
+        <div class="flex items-center justify-end gap-3 text-[#a0f0c0] text-xl mb-2"><span class="tracking-[0.3em]">02 — CLEANING</span><i class="fa-solid fa-soap text-3xl"></i></div>
+        <h2 class="text-5xl md:text-7xl font-bold leading-tight bg-gradient-to-l from-[#c2ffd8] to-[#90eeb0] bg-clip-text text-transparent">PRISTINE SPACES</h2>
+        <p class="text-gray-200 text-xl md:text-2xl mt-5 max-w-xl ml-auto drop-shadow">Deep cleaning, sanitization, and maintenance for offices, industries, and private residences. We bring the sparkle.</p>
+        <div class="mt-8 flex gap-4 justify-end flex-wrap">
+          <span class="px-6 py-3 bg-black/30 backdrop-blur-sm rounded-full border border-[#59d186]">industrial grade</span>
+          <span class="px-6 py-3 bg-black/30 backdrop-blur-sm rounded-full border border-[#59d186]">eco‑friendly</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. TRANSPORT SERVICES -->
+  <section class="relative w-full h-[90vh] flex items-center border-t border-[#297a4d]/40">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1601584115198-04ecc6da9f4c?q=80&w=2070&auto=format&fit=crop'); filter: brightness(0.4) contrast(1.1);"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0e281b] via-transparent to-[#0a321d]"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
+      <div class="md:w-2/3">
+        <div class="flex items-center gap-3 text-[#a0f0c0] text-xl mb-2"><i class="fa-solid fa-truck-ramp-box text-3xl"></i><span class="tracking-[0.3em]">03 — TRANSPORT</span></div>
+        <h2 class="text-5xl md:text-7xl font-bold leading-tight bg-gradient-to-r from-[#fff5cf] to-[#aaf0c5] bg-clip-text text-transparent">LOGISTICS & HAULAGE</h2>
+        <p class="text-gray-200 text-xl md:text-2xl mt-5 max-w-xl">Reliable fleet of trucks, vans, and cold chain. We move your goods safely, on time, across the region.</p>
+        <div class="mt-8 flex gap-4">
+          <span class="px-6 py-3 bg-black/30 backdrop-blur-sm rounded-full border border-[#59d186]">cold chain</span>
+          <span class="px-6 py-3 bg-black/30 backdrop-blur-sm rounded-full border border-[#59d186]">heavy equipment</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. GENERAL SUPPLY OF MERCHANDISE -->
+  <section class="relative w-full h-[90vh] flex items-center border-t border-[#297a4d]/40">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?q=80&w=2072&auto=format&fit=crop'); filter: brightness(0.45);"></div>
+    <div class="absolute inset-0 bg-gradient-to-l from-[#062211] via-transparent to-[#0d341c]"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-8 w-full text-right">
+      <div class="md:w-2/3 ml-auto">
+        <div class="flex items-center justify-end gap-3 text-[#a0f0c0] text-xl mb-2"><span class="tracking-[0.3em]">04 — GENERAL SUPPLY</span><i class="fa-solid fa-boxes-packing text-3xl"></i></div>
+        <h2 class="text-5xl md:text-7xl font-bold leading-tight bg-gradient-to-l from-[#d0ffcf] to-[#92eea0] bg-clip-text text-transparent">WHOLESALE & RETAIL</h2>
+        <p class="text-gray-200 text-xl md:text-2xl mt-5 max-w-xl ml-auto">From office supplies to industrial materials, we source and deliver a vast range of merchandise with competitive pricing.</p>
+        <div class="mt-8 flex gap-4 justify-end">
+          <span class="px-6 py-3 bg-black/30 backdrop-blur-sm rounded-full border border-[#59d186]">bulk order</span>
+          <span class="px-6 py-3 bg-black/30 backdrop-blur-sm rounded-full border border-[#59d186]">strategic sourcing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. GENERAL BUILDING & CIVIL CONSTRUCTION -->
+  <section class="relative w-full h-[90vh] flex items-center border-t border-[#297a4d]/40">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1541976590-713941681591?q=80&w=2069&auto=format&fit=crop'); filter: brightness(0.4);"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#091f12] via-[#1a4029]/60 to-[#0a2f18]"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
+      <div class="md:w-2/3">
+        <div class="flex items-center gap-3 text-[#a0f0c0] text-xl mb-2"><i class="fa-solid fa-helmet-safety text-3xl"></i><span class="tracking-[0.3em]">05 — BUILDING & CIVIL</span></div>
+        <h2 class="text-5xl md:text-7xl font-bold leading-tight bg-gradient-to-r from-[#f5ffcf] to-[#b4ffca] bg-clip-text text-transparent">INFRASTRUCTURE & BEYOND</h2>
+        <p class="text-gray-200 text-xl md:text-2xl mt-5 max-w-xl">Construction, renovation, roadworks, and project management. We build the foundations of tomorrow, today.</p>
+        <div class="mt-8 flex gap-4">
+          <span class="px-6 py-3 bg-black/30 backdrop-blur-sm rounded-full border border-[#59d186]">civil engineering</span>
+          <span class="px-6 py-3 bg-black/30 backdrop-blur-sm rounded-full border border-[#59d186]">residential & commercial</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS / TRUST (unique gradient section) -->
+  <section class="py-28 bg-gradient-to-b from-[#0a261a] to-[#123b22] relative overflow-hidden">
+    <div class="absolute inset-0 opacity-20" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cGF0aCBkPSJNMzAgMTBhMjAgMjAgMCAwIDEgMjAgMjAgMjAgMjAgMCAwIDEtNDAgMCAyMCAyMCAwIDAgMSAyMC0yMHoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzJmYzY3ZSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48L3N2Zz4='); background-repeat: repeat; opacity: 0.3;"></div>
+    <div class="relative z-10 max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="stat-card p-8 rounded-3xl text-center"><div class="text-5xl font-black text-[#a0f7c0]">150+</div><div class="text-xl mt-2">projects yearly</div></div>
+      <div class="stat-card p-8 rounded-3xl text-center"><div class="text-5xl font-black text-[#a0f7c0]">24/7</div><div class="text-xl mt-2">operations</div></div>
+      <div class="stat-card p-8 rounded-3xl text-center"><div class="text-5xl font-black text-[#a0f7c0]">100%</div><div class="text-xl mt-2">eco‑conscious</div></div>
+      <div class="stat-card p-8 rounded-3xl text-center"><div class="text-5xl font-black text-[#a0f7c0]">5★</div><div class="text-xl mt-2">client rating</div></div>
+    </div>
+  </section>
+
+  <!-- ABOUT / MISSION with subtle background -->
+  <section id="about" class="py-28 px-6 bg-[#102f1d] relative">
+    <div class="max-w-6xl mx-auto relative z-10">
+      <div class="flex flex-col md:flex-row gap-16 items-center">
+        <div class="md:w-1/2">
+          <div class="gradient-border p-1 inline-block rounded-3xl">
+            <div class="bg-[#0d2a19] p-8 rounded-3xl">
+              <i class="fa-regular fa-compass text-7xl text-[#9affb8] mb-4"></i>
+              <h3 class="text-3xl font-bold bg-gradient-to-r from-[#d6ffd6] to-[#80eea0] bg-clip-text text-transparent">one group, many solutions</h3>
+              <p class="text-gray-300 text-lg mt-5 leading-relaxed">Eboile Trading was founded to bridge gaps in catering, cleaning, logistics, supply, and construction. We combine local insight with international standards. Every service hero backs our promise: reliability, integrity, and sustainable growth.</p>
+            </div>
+          </div>
+        </div>
+        <div class="md:w-1/2 space-y-7">
+          <div class="flex gap-5 items-start">
+            <i class="fa-solid fa-circle-check text-3xl text-[#3fe88e]"></i>
+            <div><span class="text-2xl font-semibold">certified & insured</span><p class="text-gray-400">Full licensing for all verticals.</p></div>
+          </div>
+          <div class="flex gap-5 items-start">
+            <i class="fa-solid fa-circle-check text-3xl text-[#3fe88e]"></i>
+            <div><span class="text-2xl font-semibold">1,200+ clients</span><p class="text-gray-400">From embassies to local businesses.</p></div>
+          </div>
+          <div class="flex gap-5 items-start">
+            <i class="fa-solid fa-circle-check text-3xl text-[#3fe88e]"></i>
+            <div><span class="text-2xl font-semibold">green ethos</span><p class="text-gray-400">Solar‑powered warehouses, zero‑waste catering.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / BOLD GRADIENT BANNER -->
+  <section id="contact" class="relative py-24 bg-[#0e2b1b] overflow-hidden">
+    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=2069&auto=format&fit=crop')] bg-cover bg-center opacity-20"></div>
+    <div class="relative z-10 max-w-4xl mx-auto text-center px-6">
+      <h2 class="text-5xl md:text-7xl font-black uppercase bg-gradient-to-r from-[#e3ffe6] to-[#88f0ac] bg-clip-text text-transparent">let’s work together</h2>
+      <p class="text-xl mt-6 text-[#e2ffe6]">Reach out for a tailored solution – any industry, any scale.</p>
+      <div class="mt-12 flex flex-wrap justify-center gap-8 text-2xl">
+        <div class="flex items-center gap-3 bg-black/30 px-8 py-4 rounded-full border border-[#59d186]"><i class="fa-regular fa-envelope text-[#a0f7b0]"></i> info@eboile.trading</div>
+        <div class="flex items-center gap-3 bg-black/30 px-8 py-4 rounded-full border border-[#59d186]"><i class="fa-solid fa-phone text-[#a0f7b0]"></i> +254 (0) 700 123 456</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER with dynamic gradient line -->
+  <footer class="bg-[#07190e] py-16 border-t border-[#2d7447]">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10">
+      <div>
+        <span class="text-4xl font-black bg-gradient-to-r from-[#baffd4] to-[#4edb80] bg-clip-text text-transparent">EBOILE</span>
+        <p class="text-sm text-gray-400 mt-4">© 2025 — multi‑service trading. outstanding quality.</p>
+      </div>
+      <div>
+        <h4 class="text-xl font-bold text-[#b3f7c9]">services</h4>
+        <ul class="mt-4 space-y-2 text-gray-400"><li>Catering</li><li>Cleaning</li><li>Transport</li><li>General supply</li><li>Building & civil</li></ul>
+      </div>
+      <div>
+        <h4 class="text-xl font-bold text-[#b3f7c9]">social</h4>
+        <div class="flex gap-5 mt-5 text-2xl">
+          <i class="fa-brands fa-facebook hover:text-[#7fe0a8]"></i>
+          <i class="fa-brands fa-x-twitter hover:text-[#7fe0a8]"></i>
+          <i class="fa-brands fa-instagram hover:text-[#7fe0a8]"></i>
+          <i class="fa-brands fa-linkedin hover:text-[#7fe0a8]"></i>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-xl font-bold text-[#b3f7c9]">location</h4>
+        <p class="mt-4 text-gray-400"><i class="fa-regular fa-building mr-2"></i>Nairobi / Mombasa<br>East Africa Hub</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eboile Trading • Multi‑Service Excellence</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --g1: #00ff87;
+      --g2: #00c4a7;
+      --g3: #0aff6c;
+      --dark: #030d07;
+      --dark2: #071410;
+      --card-bg: rgba(0,255,135,0.04);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--dark);
+      color: #e0ffe8;
+      overflow-x: hidden;
+    }
+
+    h1, h2, .display { font-family: 'Bebas Neue', sans-serif; }
+    .syne { font-family: 'Syne', sans-serif; }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.35;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      padding: 1.4rem 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+      background: linear-gradient(180deg, rgba(3,13,7,0.92) 0%, transparent 100%);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(0,255,135,0.08);
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.08em;
+      background: linear-gradient(90deg, #c8ffde, #00ff87);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(200,255,220,0.7);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: linear-gradient(90deg, var(--g1), var(--g2));
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--g1); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.65rem 1.8rem;
+      border: 1px solid rgba(0,255,135,0.5);
+      border-radius: 100px;
+      color: var(--g1);
+      text-decoration: none;
+      background: rgba(0,255,135,0.06);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    .nav-cta:hover {
+      background: rgba(0,255,135,0.18);
+      border-color: var(--g1);
+      box-shadow: 0 0 30px rgba(0,255,135,0.25), inset 0 0 20px rgba(0,255,135,0.05);
+      transform: translateY(-1px);
+    }
+
+    /* ── MASTER HERO ── */
+    .master-hero {
+      position: relative;
+      height: 100vh; min-height: 700px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .master-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1586528116311-8431f2c72e6a?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover; background-position: center;
+      filter: brightness(0.3) saturate(1.4);
+      transform: scale(1.08);
+      transition: transform 8s ease;
+    }
+    .master-hero:hover .master-hero-bg { transform: scale(1.0); }
+
+    /* diagonal gradient overlay */
+    .master-hero-overlay {
+      position: absolute; inset: 0;
+      background: 
+        linear-gradient(135deg, rgba(3,13,7,0.92) 0%, rgba(3,13,7,0.3) 50%, rgba(7,20,16,0.85) 100%);
+    }
+    /* animated green vein */
+    .hero-vein {
+      position: absolute;
+      top: -20%; left: 50%; width: 2px;
+      height: 140%;
+      background: linear-gradient(180deg, transparent, rgba(0,255,135,0.25) 30%, rgba(0,196,167,0.15) 70%, transparent);
+      transform: rotate(-20deg);
+      filter: blur(4px);
+      animation: veinPulse 4s ease-in-out infinite;
+    }
+    @keyframes veinPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    .master-hero-content {
+      position: relative; z-index: 10;
+      text-align: center; padding: 0 2rem;
+      max-width: 1100px;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.8rem;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--g1);
+      padding: 0.5rem 1.4rem;
+      border: 1px solid rgba(0,255,135,0.3);
+      border-radius: 100px;
+      background: rgba(0,255,135,0.07);
+      backdrop-filter: blur(10px);
+      margin-bottom: 2rem;
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero-eyebrow .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--g1);
+      box-shadow: 0 0 10px var(--g1);
+      animation: blink 2s ease infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    .master-hero h1 {
+      font-size: clamp(5rem, 13vw, 14rem);
+      line-height: 0.9;
+      letter-spacing: -0.01em;
+      background: linear-gradient(145deg, #ffffff 0%, #d0ffea 40%, var(--g1) 75%, var(--g2) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 80px rgba(0,255,135,0.15));
+      animation: fadeUp 0.9s 0.1s ease both;
+    }
+    .master-hero .tagline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      font-weight: 300; font-style: italic;
+      color: rgba(200,255,220,0.75);
+      letter-spacing: 0.05em;
+      margin-top: 1.5rem;
+      animation: fadeUp 1s 0.2s ease both;
+    }
+    .hero-services-list {
+      display: flex; flex-wrap: wrap; gap: 0.7rem;
+      justify-content: center; margin-top: 2.5rem;
+      animation: fadeUp 1s 0.3s ease both;
+    }
+    .hero-tag {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.4rem 1.2rem;
+      border: 1px solid rgba(0,255,135,0.2);
+      border-radius: 100px;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(8px);
+      color: rgba(200,255,220,0.7);
+      transition: all 0.3s;
+    }
+    .hero-tag:hover {
+      border-color: var(--g1);
+      color: var(--g1);
+      background: rgba(0,255,135,0.1);
+      transform: translateY(-2px);
+    }
+    .hero-buttons {
+      display: flex; gap: 1.2rem;
+      justify-content: center; margin-top: 3.5rem;
+      animation: fadeUp 1s 0.4s ease both;
+    }
+    .btn-primary {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 1rem 2.8rem;
+      border-radius: 100px;
+      border: none;
+      background: linear-gradient(135deg, #00ff87, #00c4a7);
+      color: #030d07;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative; overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 30px rgba(0,255,135,0.35);
+    }
+    .btn-primary::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, #7fffcc, #00ff87);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 50px rgba(0,255,135,0.5); }
+    .btn-primary:hover::before { opacity: 1; }
+    .btn-primary span { position: relative; z-index: 1; }
+
+    .btn-ghost {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 1rem 2.8rem;
+      border-radius: 100px;
+      border: 1.5px solid rgba(0,255,135,0.4);
+      background: rgba(0,255,135,0.05);
+      backdrop-filter: blur(12px);
+      color: rgba(200,255,220,0.9);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .btn-ghost:hover {
+      border-color: var(--g1);
+      background: rgba(0,255,135,0.12);
+      color: var(--g1);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,255,135,0.2);
+    }
+
+    .scroll-cue {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+      z-index: 10;
+      animation: fadeUp 1s 0.8s ease both;
+    }
+    .scroll-cue span {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(0,255,135,0.5);
+    }
+    .scroll-line {
+      width: 1px; height: 50px;
+      background: linear-gradient(180deg, rgba(0,255,135,0.6), transparent);
+      animation: scrollDrop 2s ease infinite;
+    }
+    @keyframes scrollDrop {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SERVICES SECTION WRAPPER ── */
+    #services { position: relative; }
+
+    /* ── SERVICE HERO (each one) ── */
+    .service-hero {
+      position: relative;
+      height: 100vh; min-height: 650px;
+      display: flex; align-items: center;
+      overflow: hidden;
+      border-top: 1px solid rgba(0,255,135,0.06);
+    }
+
+    .service-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      filter: brightness(0.28) saturate(1.3);
+      transition: filter 0.7s ease, transform 0.7s ease;
+      transform: scale(1.05);
+    }
+    .service-hero:hover .service-bg {
+      filter: brightness(0.38) saturate(1.5);
+      transform: scale(1.0);
+    }
+
+    /* unique per-service gradient */
+    .service-hero.catering .service-overlay {
+      background: linear-gradient(110deg, rgba(3,13,7,0.96) 0%, rgba(3,13,7,0.5) 45%, rgba(0,40,20,0.82) 100%);
+    }
+    .service-hero.cleaning .service-overlay {
+      background: linear-gradient(250deg, rgba(3,13,7,0.96) 0%, rgba(3,13,7,0.45) 50%, rgba(0,20,30,0.85) 100%);
+    }
+    .service-hero.transport .service-overlay {
+      background: linear-gradient(120deg, rgba(3,13,7,0.97) 0%, rgba(3,13,7,0.4) 55%, rgba(0,35,15,0.88) 100%);
+    }
+    .service-hero.supply .service-overlay {
+      background: linear-gradient(240deg, rgba(3,13,7,0.96) 0%, rgba(3,13,7,0.4) 55%, rgba(0,30,20,0.88) 100%);
+    }
+    .service-hero.construction .service-overlay {
+      background: linear-gradient(125deg, rgba(3,13,7,0.97) 0%, rgba(3,13,7,0.4) 55%, rgba(5,25,10,0.9) 100%);
+    }
+
+    .service-overlay {
+      position: absolute; inset: 0;
+    }
+    /* accent glow per service */
+    .service-hero::after {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,255,135,0.08) 0%, transparent 70%);
+      pointer-events: none;
+      transition: opacity 0.5s;
+    }
+    .service-hero.left-content::after { top: -100px; right: -100px; }
+    .service-hero.right-content::after { top: -100px; left: -100px; }
+
+    .service-content {
+      position: relative; z-index: 10;
+      max-width: 1200px; width: 100%;
+      margin: 0 auto; padding: 0 4rem;
+    }
+    .service-hero.right-content .service-content {
+      display: flex; justify-content: flex-end;
+    }
+    .service-inner { max-width: 620px; }
+
+    .service-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 8rem;
+      line-height: 1;
+      background: linear-gradient(180deg, rgba(0,255,135,0.12) 0%, transparent 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      position: absolute;
+      top: 50%; right: 4rem;
+      transform: translateY(-50%);
+      pointer-events: none;
+      transition: opacity 0.4s;
+      user-select: none;
+    }
+    .service-hero.right-content .service-num {
+      right: auto; left: 4rem;
+    }
+
+    .service-label {
+      display: inline-flex; align-items: center; gap: 0.8rem;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--g1);
+      margin-bottom: 1.2rem;
+    }
+    .service-label .num-badge {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,255,135,0.4);
+      background: rgba(0,255,135,0.08);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem;
+    }
+
+    .service-title {
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      line-height: 0.92;
+      letter-spacing: -0.01em;
+      background: linear-gradient(135deg, #ffffff 0%, #cfffde 60%, var(--g1) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-desc {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgba(200,255,220,0.65);
+      max-width: 480px;
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+
+    .service-pills {
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+      margin-bottom: 2.5rem;
+    }
+    .pill {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.45rem 1.1rem;
+      border-radius: 100px;
+      border: 1px solid rgba(0,255,135,0.2);
+      background: rgba(0,255,135,0.05);
+      backdrop-filter: blur(10px);
+      color: rgba(180,255,210,0.7);
+      transition: all 0.3s;
+      cursor: default;
+    }
+    .pill:hover {
+      border-color: var(--g1);
+      background: rgba(0,255,135,0.12);
+      color: var(--g1);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(0,255,135,0.2);
+    }
+
+    /* glass card inside service */
+    .glass-card {
+      background: rgba(0,255,135,0.04);
+      border: 1px solid rgba(0,255,135,0.15);
+      border-radius: 1.2rem;
+      padding: 1.4rem 1.8rem;
+      backdrop-filter: blur(20px);
+      display: inline-flex; align-items: center; gap: 1rem;
+      transition: all 0.3s;
+    }
+    .glass-card:hover {
+      background: rgba(0,255,135,0.09);
+      border-color: rgba(0,255,135,0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0,255,135,0.15);
+    }
+    .glass-card .icon-wrap {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(0,255,135,0.2), rgba(0,196,167,0.1));
+      border: 1px solid rgba(0,255,135,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; color: var(--g1);
+    }
+    .glass-card .card-text strong {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.9rem; font-weight: 700;
+      color: rgba(220,255,235,0.9);
+      display: block;
+    }
+    .glass-card .card-text span {
+      font-size: 0.78rem;
+      color: rgba(150,220,180,0.5);
+    }
+
+    /* diagonal separator */
+    .diag-sep {
+      height: 80px;
+      background: linear-gradient(135deg, #030d07 49%, transparent 51%);
+      margin-top: -1px;
+    }
+
+    /* ── STATS BAND ── */
+    .stats-band {
+      padding: 5rem 0;
+      background: linear-gradient(180deg, #061510 0%, #041209 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .stats-band::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,255,135,0.3), transparent);
+    }
+    .stats-band::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,255,135,0.3), transparent);
+    }
+    .stats-grid {
+      max-width: 1100px; margin: 0 auto; padding: 0 3rem;
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 2px;
+    }
+    .stat-item {
+      text-align: center; padding: 2.5rem 1.5rem;
+      position: relative;
+      transition: all 0.3s;
+    }
+    .stat-item::before {
+      content: '';
+      position: absolute; top: 20%; right: 0;
+      width: 1px; height: 60%;
+      background: linear-gradient(180deg, transparent, rgba(0,255,135,0.2), transparent);
+    }
+    .stat-item:last-child::before { display: none; }
+    .stat-item:hover {
+      background: rgba(0,255,135,0.03);
+      border-radius: 1rem;
+    }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4.5rem;
+      background: linear-gradient(135deg, var(--g1), var(--g2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(150,220,180,0.5);
+      margin-top: 0.6rem;
+    }
+
+    /* ── ABOUT ── */
+    .about-section {
+      padding: 8rem 0;
+      background: linear-gradient(160deg, #041209 0%, #071510 60%, #041209 100%);
+      position: relative; overflow: hidden;
+    }
+    .about-grid-pattern {
+      position: absolute; inset: 0;
+      background-image: 
+        linear-gradient(rgba(0,255,135,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,135,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .about-glow {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,255,135,0.04) 0%, transparent 65%);
+    }
+    .about-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 4rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+      align-items: center; position: relative; z-index: 2;
+    }
+    .about-left .section-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--g1); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .about-left .section-label::before {
+      content: ''; width: 30px; height: 1px;
+      background: var(--g1);
+    }
+    .about-title {
+      font-size: clamp(3rem, 5vw, 5rem);
+      line-height: 0.95;
+      background: linear-gradient(145deg, #fff, #c8ffe0, var(--g1));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: 2rem;
+    }
+    .about-body {
+      font-size: 1rem; line-height: 1.85;
+      color: rgba(180,240,200,0.55);
+      font-weight: 300;
+    }
+    /* big glass card */
+    .about-glass {
+      background: rgba(0,255,135,0.04);
+      border: 1px solid rgba(0,255,135,0.12);
+      border-radius: 2rem;
+      padding: 3rem;
+      backdrop-filter: blur(30px);
+      position: relative;
+      overflow: hidden;
+    }
+    .about-glass::before {
+      content: '';
+      position: absolute; top: -40%; right: -20%;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,255,135,0.07) 0%, transparent 65%);
+    }
+    .about-glass-inner { position: relative; z-index: 1; }
+    .check-list { list-style: none; }
+    .check-list li {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid rgba(0,255,135,0.07);
+      transition: all 0.3s;
+    }
+    .check-list li:last-child { border-bottom: none; }
+    .check-list li:hover {
+      padding-left: 0.5rem;
+    }
+    .check-icon {
+      width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(0,255,135,0.2), rgba(0,196,167,0.1));
+      border: 1px solid rgba(0,255,135,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; color: var(--g1);
+      margin-top: 2px;
+    }
+    .check-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem; font-weight: 700;
+      color: rgba(210,255,225,0.9);
+    }
+    .check-sub {
+      font-size: 0.82rem; color: rgba(140,200,165,0.5);
+      margin-top: 0.2rem;
+    }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      padding: 8rem 0;
+      background: var(--dark);
+      position: relative; overflow: hidden;
+    }
+    .contact-bg-img {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=2069&auto=format&fit=crop');
+      background-size: cover; background-position: center;
+      filter: brightness(0.1) saturate(0.5);
+    }
+    .contact-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, rgba(3,13,7,0.97) 0%, rgba(3,13,7,0.8) 50%, rgba(3,13,7,0.97) 100%);
+    }
+    .contact-inner {
+      position: relative; z-index: 10;
+      max-width: 900px; margin: 0 auto;
+      padding: 0 3rem; text-align: center;
+    }
+    .contact-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--g1); margin-bottom: 1.5rem;
+      display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+    }
+    .contact-title {
+      font-size: clamp(3.5rem, 8vw, 8rem);
+      line-height: 0.9;
+      background: linear-gradient(135deg, #ffffff, #c8ffe0, var(--g1));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
+    }
+    .contact-sub {
+      font-size: 1.05rem; font-weight: 300;
+      color: rgba(180,240,200,0.5);
+      margin-bottom: 4rem;
+    }
+    .contact-cards {
+      display: flex; gap: 1.5rem; justify-content: center;
+      flex-wrap: wrap;
+    }
+    .contact-card {
+      background: rgba(0,255,135,0.04);
+      border: 1px solid rgba(0,255,135,0.15);
+      border-radius: 1.5rem;
+      padding: 2rem 2.5rem;
+      backdrop-filter: blur(20px);
+      display: flex; align-items: center; gap: 1.2rem;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      min-width: 280px;
+    }
+    .contact-card:hover {
+      background: rgba(0,255,135,0.1);
+      border-color: rgba(0,255,135,0.5);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,255,135,0.2);
+    }
+    .contact-card .ci {
+      width: 50px; height: 50px; border-radius: 14px; flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(0,255,135,0.2), rgba(0,196,167,0.1));
+      border: 1px solid rgba(0,255,135,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; color: var(--g1);
+      transition: all 0.3s;
+    }
+    .contact-card:hover .ci {
+      background: linear-gradient(135deg, rgba(0,255,135,0.35), rgba(0,196,167,0.2));
+      box-shadow: 0 0 25px rgba(0,255,135,0.3);
+    }
+    .contact-card .ct strong {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(0,255,135,0.6);
+      display: block; margin-bottom: 0.25rem;
+    }
+    .contact-card .ct span {
+      font-size: 0.95rem; color: rgba(200,255,220,0.85);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: linear-gradient(180deg, #030d07 0%, #020c06 100%);
+      border-top: 1px solid rgba(0,255,135,0.08);
+      padding: 5rem 0 3rem;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 4rem;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem; letter-spacing: 0.05em;
+      background: linear-gradient(135deg, #c8ffde, var(--g1));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      display: block; margin-bottom: 1rem;
+    }
+    .footer-tagline {
+      font-size: 0.85rem; font-weight: 300; font-style: italic;
+      color: rgba(140,200,165,0.5);
+      line-height: 1.6;
+    }
+    .footer-col h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: rgba(0,255,135,0.6);
+      margin-bottom: 1.5rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li {
+      padding: 0.35rem 0;
+      font-size: 0.88rem; color: rgba(150,210,175,0.45);
+      transition: all 0.3s; cursor: default;
+    }
+    .footer-col ul li:hover { color: rgba(200,255,220,0.8); padding-left: 0.4rem; }
+    .footer-social { display: flex; gap: 1rem; margin-top: 0; }
+    .social-btn {
+      width: 38px; height: 38px; border-radius: 10px;
+      border: 1px solid rgba(0,255,135,0.15);
+      background: rgba(0,255,135,0.04);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(0,255,135,0.5); font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .social-btn:hover {
+      border-color: var(--g1);
+      background: rgba(0,255,135,0.12);
+      color: var(--g1);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,255,135,0.2);
+    }
+    .footer-bottom {
+      max-width: 1200px; margin: 4rem auto 0;
+      padding: 1.8rem 4rem 0;
+      border-top: 1px solid rgba(0,255,135,0.06);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(120,180,150,0.3);
+    }
+    .footer-copy span { color: rgba(0,255,135,0.5); }
+
+    /* ── MOBILE MENU TOGGLE ── */
+    .mob-menu-btn {
+      display: none;
+      background: none; border: none; cursor: pointer;
+      color: var(--g1); font-size: 1.4rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .mob-menu-btn { display: block; }
+      .master-hero h1 { font-size: 5rem; }
+      .service-content { padding: 0 2rem; }
+      .service-title { font-size: 3.5rem; }
+      .service-num { display: none; }
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .about-inner { grid-template-columns: 1fr; gap: 3rem; padding: 0 2rem; }
+      .footer-inner { grid-template-columns: 1fr; padding: 0 2rem; }
+      .footer-bottom { padding: 1.5rem 2rem 0; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════ NAV ══════════ -->
+  <nav>
+    <a href="#" class="nav-logo">Eboile<span style="font-size:1.3rem;opacity:0.6"> Trading</span></a>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Get a Quote</a>
+    <button class="mob-menu-btn"><i class="fa-solid fa-bars"></i></button>
+  </nav>
+
+  <!-- ══════════ MASTER HERO ══════════ -->
+  <section class="master-hero">
+    <div class="master-hero-bg"></div>
+    <div class="master-hero-overlay"></div>
+    <div class="hero-vein"></div>
+
+    <div class="master-hero-content">
+      <div class="hero-eyebrow">
+        <div class="dot"></div>
+        Multi‑Service Excellence &nbsp;·&nbsp; Est. 2012
+        <div class="dot"></div>
+      </div>
+
+      <h1>EBOILE<br>TRADING</h1>
+
+      <p class="tagline">where reliability meets craftsmanship — across five industries</p>
+
+      <div class="hero-services-list">
+        <span class="hero-tag"><i class="fa-solid fa-kitchen-set" style="margin-right:0.4rem;font-size:0.7rem"></i>Catering</span>
+        <span class="hero-tag"><i class="fa-solid fa-soap" style="margin-right:0.4rem;font-size:0.7rem"></i>Cleaning</span>
+        <span class="hero-tag"><i class="fa-solid fa-truck" style="margin-right:0.4rem;font-size:0.7rem"></i>Transport</span>
+        <span class="hero-tag"><i class="fa-solid fa-boxes-stacked" style="margin-right:0.4rem;font-size:0.7rem"></i>General Supply</span>
+        <span class="hero-tag"><i class="fa-solid fa-helmet-safety" style="margin-right:0.4rem;font-size:0.7rem"></i>Building & Civil</span>
+      </div>
+
+      <div class="hero-buttons">
+        <a href="services.html  " class="btn-primary"><span><i class="fa-solid fa-compass" style="margin-right:0.5rem"></i>Explore Services</span></a>
+        <a href="contact.html" class="btn-ghost"><i class="fa-regular fa-handshake" style="margin-right:0.5rem"></i>Request a Quote</a>
+      </div>
+    </div>
+
+    <div class="scroll-cue">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ══════════ SERVICES ══════════ -->
+  <div id="services"></div>
+
+  <!-- 1 ── CATERING -->
+  <section class="service-hero catering left-content">
+    <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070&auto=format&fit=crop');"></div>
+    <div class="service-overlay"></div>
+    <div class="service-content">
+      <div class="service-inner">
+        <div class="service-label"><span class="num-badge">01</span> Catering Services</div>
+        <h2 class="service-title">FEAST &<br>FLAVOR</h2>
+        <p class="service-desc">Corporate events, banquets, and daily meal delivery crafted from premium ingredients. We transform every gathering into a culinary memory that lasts.</p>
+        <div class="service-pills">
+          <span class="pill">Corporate Events</span>
+          <span class="pill">Weddings & Galas</span>
+          <span class="pill">Daily Meal Delivery</span>
+          <span class="pill">Custom Menus</span>
+        </div>
+        <div class="glass-card">
+          <div class="icon-wrap"><i class="fa-solid fa-star"></i></div>
+          <div class="card-text">
+            <strong>500+ Events Served</strong>
+            <span>Trusted by embassies & Fortune 500</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="service-num" style="opacity:0.06">01</div>
+  </section>
+
+  <!-- 2 ── CLEANING -->
+  <section class="service-hero cleaning right-content">
+    <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop');"></div>
+    <div class="service-overlay"></div>
+    <div class="service-content">
+      <div class="service-inner">
+        <div class="service-label"><span class="num-badge">02</span> Cleaning Services</div>
+        <h2 class="service-title">PRISTINE<br>SPACES</h2>
+        <p class="service-desc">Industrial-grade deep cleaning, sanitization, and routine maintenance. From high-rise offices to private residences — we bring the sparkle every time.</p>
+        <div class="service-pills">
+          <span class="pill">Industrial Grade</span>
+          <span class="pill">Eco‑Friendly</span>
+          <span class="pill">Sanitization</span>
+          <span class="pill">Residential & Office</span>
+        </div>
+        <div class="glass-card">
+          <div class="icon-wrap"><i class="fa-solid fa-leaf"></i></div>
+          <div class="card-text">
+            <strong>100% Eco‑Conscious</strong>
+            <span>Zero-harm certified cleaning agents</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="service-num" style="opacity:0.06; left:4rem; right:auto">02</div>
+  </section>
+
+  <!-- 3 ── TRANSPORT -->
+  <section class="service-hero transport left-content">
+    <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1601584115198-04ecc6da9f4c?q=80&w=2070&auto=format&fit=crop');"></div>
+    <div class="service-overlay"></div>
+    <div class="service-content">
+      <div class="service-inner">
+        <div class="service-label"><span class="num-badge">03</span> Transport & Logistics</div>
+        <h2 class="service-title">MOVE<br>ANYTHING</h2>
+        <p class="service-desc">A reliable fleet spanning trucks, vans, and cold-chain vehicles. We deliver your goods safely, on schedule, across the region — no exceptions.</p>
+        <div class="service-pills">
+          <span class="pill">Cold Chain</span>
+          <span class="pill">Heavy Equipment</span>
+          <span class="pill">Last-Mile Delivery</span>
+          <span class="pill">Fleet Tracking</span>
+        </div>
+        <div class="glass-card">
+          <div class="icon-wrap"><i class="fa-solid fa-clock"></i></div>
+          <div class="card-text">
+            <strong>24/7 Operations</strong>
+            <span>Real‑time GPS fleet tracking</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="service-num" style="opacity:0.06">03</div>
+  </section>
+
+  <!-- 4 ── SUPPLY -->
+  <section class="service-hero supply right-content">
+    <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?q=80&w=2072&auto=format&fit=crop');"></div>
+    <div class="service-overlay"></div>
+    <div class="service-content">
+      <div class="service-inner">
+        <div class="service-label"><span class="num-badge">04</span> General Supply</div>
+        <h2 class="service-title">SOURCE<br>& SUPPLY</h2>
+        <p class="service-desc">From office consumables to bulk industrial materials — we procure and deliver a vast catalogue of merchandise at competitive pricing with unmatched speed.</p>
+        <div class="service-pills">
+          <span class="pill">Bulk Orders</span>
+          <span class="pill">Strategic Sourcing</span>
+          <span class="pill">Wholesale & Retail</span>
+          <span class="pill">Just-in-Time</span>
+        </div>
+        <div class="glass-card">
+          <div class="icon-wrap"><i class="fa-solid fa-cubes"></i></div>
+          <div class="card-text">
+            <strong>10,000+ SKUs Available</strong>
+            <span>Catalogue delivered in 48 hrs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="service-num" style="opacity:0.06; left:4rem; right:auto">04</div>
+  </section>
+
+  <!-- 5 ── CONSTRUCTION -->
+  <section class="service-hero construction left-content">
+    <div class="service-bg" style="background-image: url('https://images.unsplash.com/photo-1541976590-713941681591?q=80&w=2069&auto=format&fit=crop');"></div>
+    <div class="service-overlay"></div>
+    <div class="service-content">
+      <div class="service-inner">
+        <div class="service-label"><span class="num-badge">05</span> Building & Civil Construction</div>
+        <h2 class="service-title">BUILD<br>TOMORROW</h2>
+        <p class="service-desc">From foundation to finish — civil engineering, roadworks, residential builds, and commercial renovation. We engineer the infrastructure of a better future.</p>
+        <div class="service-pills">
+          <span class="pill">Civil Engineering</span>
+          <span class="pill">Roadworks</span>
+          <span class="pill">Residential & Commercial</span>
+          <span class="pill">Project Management</span>
+        </div>
+        <div class="glass-card">
+          <div class="icon-wrap"><i class="fa-solid fa-award"></i></div>
+          <div class="card-text">
+            <strong>Fully Licensed & Insured</strong>
+            <span>ISO-compliant project delivery</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="service-num" style="opacity:0.06">05</div>
+  </section>
+
+  <!-- ══════════ STATS BAND ══════════ -->
+  <div class="stats-band">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">150+</div>
+        <div class="stat-label">Projects Yearly</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">1,200+</div>
+        <div class="stat-label">Active Clients</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Operations</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5★</div>
+        <div class="stat-label">Client Rating</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ ABOUT ══════════ -->
+  <section id="about" class="about-section">
+    <div class="about-grid-pattern"></div>
+    <div class="about-glow"></div>
+    <div class="about-inner">
+      <div class="about-left">
+        <p class="section-label">About Eboile Trading</p>
+        <h2 class="about-title">ONE GROUP<br>FIVE STRENGTHS</h2>
+        <p class="about-body">Founded to bridge critical gaps across catering, cleaning, logistics, supply, and construction — Eboile Trading combines deep local expertise with international standards. Every service is backed by one unbreakable promise: reliability, integrity, and sustainable growth for the communities we serve.</p>
+        <div style="margin-top:3rem">
+          <a href="#contact" class="btn-primary"><span><i class="fa-regular fa-envelope" style="margin-right:0.5rem"></i>Start a Conversation</span></a>
+        </div>
+      </div>
+
+      <div class="about-right">
+        <div class="about-glass">
+          <div class="about-glass-inner">
+            <ul class="check-list">
+              <li>
+                <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                <div>
+                  <div class="check-title">Certified & Fully Insured</div>
+                  <div class="check-sub">Full licensing across all five verticals</div>
+                </div>
+              </li>
+              <li>
+                <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                <div>
+                  <div class="check-title">1,200+ Satisfied Clients</div>
+                  <div class="check-sub">From embassies to local enterprises</div>
+                </div>
+              </li>
+              <li>
+                <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                <div>
+                  <div class="check-title">Green Ethos</div>
+                  <div class="check-sub">Solar warehouses, zero-waste catering</div>
+                </div>
+              </li>
+              <li>
+                <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                <div>
+                  <div class="check-title">ISO‑Compliant Delivery</div>
+                  <div class="check-sub">International standards on every project</div>
+                </div>
+              </li>
+              <li>
+                <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                <div>
+                  <div class="check-title">East Africa Presence</div>
+                  <div class="check-sub">Nairobi & Mombasa — serving the region</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CONTACT ══════════ -->
+  <section id="contact" class="contact-section">
+    <div class="contact-bg-img"></div>
+    <div class="contact-overlay"></div>
+    <div class="contact-inner">
+      <p class="contact-label">
+        <span style="width:24px;height:1px;background:var(--g1);display:inline-block"></span>
+        Get in Touch
+        <span style="width:24px;height:1px;background:var(--g1);display:inline-block"></span>
+      </p>
+      <h2 class="contact-title">LET'S BUILD<br>TOGETHER</h2>
+      <p class="contact-sub">Reach out for a tailored solution — any industry, any scale, any challenge.</p>
+
+      <div class="contact-cards">
+        <a href="mailto:info@eboile.trading" class="contact-card">
+          <div class="ci"><i class="fa-regular fa-envelope"></i></div>
+          <div class="ct">
+            <strong>Email us</strong>
+            <span>info@eboile.trading</span>
+          </div>
+        </a>
+        <a href="tel:+254700123456" class="contact-card">
+          <div class="ci"><i class="fa-solid fa-phone"></i></div>
+          <div class="ct">
+            <strong>Call us</strong>
+            <span>+254 (0) 700 123 456</span>
+          </div>
+        </a>
+        <a href="#" class="contact-card">
+          <div class="ci"><i class="fa-regular fa-building"></i></div>
+          <div class="ct">
+            <strong>Visit us</strong>
+            <span>Nairobi / Mombasa, Kenya</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <span class="footer-logo">EBOILE</span>
+        <p class="footer-tagline">Multi‑service trading since 2012.<br>Outstanding quality. Unwavering reliability.</p>
+        <div class="footer-social" style="margin-top:2rem">
+          <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li>Catering</li>
+          <li>Cleaning</li>
+          <li>Transport</li>
+          <li>General Supply</li>
+          <li>Building & Civil</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li>About Us</li>
+          <li>Our Projects</li>
+          <li>Careers</li>
+          <li>Certifications</li>
+          <li>Partners</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>info@eboile.trading</li>
+          <li>+254 (0) 700 123 456</li>
+          <li>Nairobi, Kenya</li>
+          <li>Mombasa, Kenya</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 <span>Eboile Trading</span>. All rights reserved.</p>
+      <p class="footer-copy">Built with purpose · Powered by excellence</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth parallax on service heroes
+    const serviceHeroes = document.querySelectorAll('.service-hero');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    // Subtle nav background on scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        nav.style.background = 'rgba(3,13,7,0.97)';
+        nav.style.borderBottomColor = 'rgba(0,255,135,0.12)';
+      } else {
+        nav.style.background = 'linear-gradient(180deg, rgba(3,13,7,0.92) 0%, transparent 100%)';
+        nav.style.borderBottomColor = 'rgba(0,255,135,0.08)';
+      }
+    });
+
+    // Animate stat numbers on scroll
+    const statNums = document.querySelectorAll('.stat-num');
+    const statObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'fadeUp 0.7s ease both';
+        }
+      });
+    }, { threshold: 0.3 });
+    statNums.forEach(s => statObs.observe(s));
+  </script>
+</body>
+</html>
