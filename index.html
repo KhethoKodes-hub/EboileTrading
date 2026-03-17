@@ -62,7 +62,7 @@
   <!-- MAIN HERO (master) — general trading / multi‑service statement -->
   <section class="relative h-screen flex items-center justify-center overflow-hidden">
     <!-- background image: general supply & building/civil vibe – dynamic warehouse + construction silhouette -->
-    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105" style="background-image: url('https://images.unsplash.com/photo-1586528116311-8431f2c72e6a?q=80&w=2070&auto=format&fit=crop'); filter: brightness(0.5) saturate(1.3);"></div>
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105" style="background-image: url('./assets/hero1.png'); filter: brightness(0.5) saturate(1.3);"></div>
     <div class="absolute inset-0 hero-overlay"></div>
     
     <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
@@ -354,7 +354,7 @@
     }
     .master-hero-bg {
       position: absolute; inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1586528116311-8431f2c72e6a?q=80&w=2070&auto=format&fit=crop');
+      background-image: url('./assets/hero1.png');
       background-size: cover; background-position: center;
       filter: brightness(0.3) saturate(1.4);
       transform: scale(1.08);
@@ -944,7 +944,6 @@
       font-size: 0.95rem; color: rgba(200,255,220,0.85);
     }
 
-    /* ── FOOTER ── */
     footer {
       background: linear-gradient(180deg, #030d07 0%, #020c06 100%);
       border-top: 1px solid rgba(0,255,135,0.08);
@@ -1011,14 +1010,15 @@
     }
     .footer-copy span { color: rgba(0,255,135,0.5); }
 
-    /* ── MOBILE MENU TOGGLE ── */
+
     .mob-menu-btn {
       display: none;
       background: none; border: none; cursor: pointer;
       color: var(--g1); font-size: 1.4rem;
     }
 
-    /* ── RESPONSIVE ── */
+
+
     @media (max-width: 768px) {
       nav { padding: 1.2rem 1.5rem; }
       .nav-links { display: none; }
@@ -1038,7 +1038,7 @@
 </head>
 <body>
 
-  <!-- ══════════ NAV ══════════ -->
+
   <nav>
     <a href="#" class="nav-logo">Eboile<span style="font-size:1.3rem;opacity:0.6"> Trading</span></a>
     <ul class="nav-links">
@@ -1051,7 +1051,6 @@
     <button class="mob-menu-btn"><i class="fa-solid fa-bars"></i></button>
   </nav>
 
-  <!-- ══════════ MASTER HERO ══════════ -->
   <section class="master-hero">
     <div class="master-hero-bg"></div>
     <div class="master-hero-overlay"></div>
