@@ -1,253 +1,5 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eboile Trading • multi‑service excellence</title>
-  <!-- Tailwind via CDN + custom layer for extra uniqueness -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome 6 (free) for crisp icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-    body { font-family: 'Space Grotesk', sans-serif; }
-    /* custom glassmorphism overlay & gradient shifts */
-    .hero-overlay {
-      background: linear-gradient(127deg, rgba(0,0,0,0.65) 0%, rgba(0, 20, 10, 0.5) 70%);
-      backdrop-filter: blur(2px);
-    }
-    .unique-grid-bg {
-      background-image: 
-        linear-gradient(rgba(180, 240, 200, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(180, 240, 200, 0.1) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-    .gradient-border {
-      border: 1px solid transparent;
-      background: linear-gradient(145deg, #0b2f1f, #1b4e3a) padding-box, 
-                  linear-gradient(145deg, #7ef0ba, #2b7a4b) border-box;
-      border-radius: 1.5rem;
-    }
-    .btn-prime {
-      background: linear-gradient(135deg, #1f7042, #0e4d2b);
-      transition: all 0.2s ease;
-    }
-    .btn-prime:hover {
-      background: linear-gradient(135deg, #2b8f52, #146b36);
-      transform: scale(1.02) translateY(-2px);
-      box-shadow: 0 20px 25px -5px rgba(0,180,100,0.3);
-    }
-    .stat-card {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(12px);
-      border-bottom: 2px solid #3fe88e;
-    }
-    footer i { color: #9ef0c0; }
-  </style>
-</head>
-<body class="bg-[#0c1f16] text-gray-200 antialiased unique-grid-bg">
-
-  <!-- NAVIGATION / HEADER (lightweight) -->
-  <nav class="fixed top-0 left-0 w-full z-50 py-4 px-6 md:px-12 flex justify-between items-center bg-[#0a1f14]/80 backdrop-blur-xl border-b border-[#2b6e4a]/30">
-    <a href="#" class="text-3xl font-bold tracking-tighter bg-gradient-to-r from-[#b0ffd0] to-[#58d68d] bg-clip-text text-transparent">EBOILE<span class="text-[#45c27c] text-xl font-light ml-1">TRADING</span></a>
-    <div class="hidden md:flex space-x-9 text-sm font-medium">
-      <a href="#" class="hover:text-[#80f2b0] transition">HOME</a>
-      <a href="#services" class="hover:text-[#80f2b0] transition">SERVICES</a>
-      <a href="#about" class="hover:text-[#80f2b0] transition">ABOUT</a>
-      <a href="#contact" class="hover:text-[#80f2b0] transition">CONTACT</a>
-    </div>
-    <button class="md:hidden text-2xl"><i class="fa-solid fa-bars text-[#8ae8b0]"></i></button>
-  </nav>
-
-  <!-- MAIN HERO (master) — general trading / multi‑service statement -->
-  <section class="relative h-screen flex items-center justify-center overflow-hidden">
-    <!-- background image: general supply & building/civil vibe – dynamic warehouse + construction silhouette -->
-    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105" style="background-image: url('./assets/hero1.png'); filter: brightness(0.5) saturate(1.3);"></div>
-    <div class="absolute inset-0 hero-overlay"></div>
-    
-    <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
-      <span class="inline-block px-5 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-[#47d185] text-[#bef5d5] text-sm tracking-widest mb-7">✦ SINCE 2012 ✦</span>
-      <h1 class="text-6xl md:text-8xl font-black uppercase leading-[1.1] tracking-tighter bg-gradient-to-r from-[#d0ffec] via-[#a0f0c0] to-[#4ad37b] bg-clip-text text-transparent drop-shadow-2xl">Eboile Trading</h1>
-      <p class="text-2xl md:text-3xl mt-6 font-light text-[#daf8e7] max-w-3xl mx-auto">catering · cleaning · transport · general supply · building & civil construction</p>
-      <div class="flex flex-wrap gap-5 justify-center mt-12">
-        <a href="#services" class="btn-prime px-10 py-5 rounded-full text-lg font-semibold shadow-2xl shadow-green-900/50 flex items-center gap-2"><i class="fa-regular fa-compass"></i> discover services</a>
-        <a href="#contact" class="px-10 py-5 rounded-full text-lg font-semibold border-2 border-[#3fe88e]/70 bg-transparent backdrop-blur-sm hover:bg-[#3fe88e]/20 transition"><i class="fa-regular fa-handshake mr-2"></i>request quote</a>
-      </div>
-    </div>
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-3xl text-[#7fe0a8]"><i class="fa-regular fa-circle-down"></i></div>
-  </section>
-
-  <!-- ====== FIVE DISTINCT HERO SECTIONS (each with specific background) ====== -->
-  <div id="services" class="relative -mt-2"></div> <!-- anchor -->
-
-  <!-- 1. CATERING -->
-  <section class="relative w-full h-[90vh] flex items-center border-t border-[#297a4d]/40 shadow-2xl">
-    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070&auto=format&fit=crop'); filter: brightness(0.45) contrast(1.1);"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-[#072112] via-transparent to-[#03170b]"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
-      <div class="md:w-2/3">
-        <div class="flex items-center gap-3 text-[#a0f0c0] text-xl mb-2"><i class="fa-solid fa-kitchen-set text-3xl"></i><span class="tracking-[0.3em]">01 — CATERING</span></div>
-        <h2 class="text-5xl md:text-7xl font-bold leading-tight bg-gradient-to-r from-[#fbffdb] to-[#b6f7cf] bg-clip-text text-transparent">FEAST & EVENT</h2>
-        <p class="text-gray-200 text-xl md:text-2xl mt-5 max-w-xl drop-shadow">Corporate catering, banquets, and bespoke menus prepared with the freshest ingredients. We turn any gathering into a culinary memory.</p>
-        <div class="mt-8 flex gap-4">
-          <span class="px-6 py-3 bg-black/30 backdrop-blur-sm rounded-full border border-[#59d186]">weddings & galas</span>
-          <span class="px-6 py-3 bg-black/30 backdrop-blur-sm rounded-full border border-[#59d186]">daily meal delivery</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 2. CLEANING -->
-  <section class="relative w-full h-[90vh] flex items-center border-t border-[#297a4d]/40">
-    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop'); filter: brightness(0.4) saturate(1.2);"></div>
-    <div class="absolute inset-0 bg-gradient-to-l from-[#051f10] via-transparent to-[#020e07]"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-8 w-full text-right">
-      <div class="md:w-2/3 ml-auto">
-        <div class="flex items-center justify-end gap-3 text-[#a0f0c0] text-xl mb-2"><span class="tracking-[0.3em]">02 — CLEANING</span><i class="fa-solid fa-soap text-3xl"></i></div>
-        <h2 class="text-5xl md:text-7xl font-bold leading-tight bg-gradient-to-l from-[#c2ffd8] to-[#90eeb0] bg-clip-text text-transparent">PRISTINE SPACES</h2>
-        <p class="text-gray-200 text-xl md:text-2xl mt-5 max-w-xl ml-auto drop-shadow">Deep cleaning, sanitization, and maintenance for offices, industries, and private residences. We bring the sparkle.</p>
-        <div class="mt-8 flex gap-4 justify-end flex-wrap">
-          <span class="px-6 py-3 bg-black/30 backdrop-blur-sm rounded-full border border-[#59d186]">industrial grade</span>
-          <span class="px-6 py-3 bg-black/30 backdrop-blur-sm rounded-full border border-[#59d186]">eco‑friendly</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. TRANSPORT SERVICES -->
-  <section class="relative w-full h-[90vh] flex items-center border-t border-[#297a4d]/40">
-    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1601584115198-04ecc6da9f4c?q=80&w=2070&auto=format&fit=crop'); filter: brightness(0.4) contrast(1.1);"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-[#0e281b] via-transparent to-[#0a321d]"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
-      <div class="md:w-2/3">
-        <div class="flex items-center gap-3 text-[#a0f0c0] text-xl mb-2"><i class="fa-solid fa-truck-ramp-box text-3xl"></i><span class="tracking-[0.3em]">03 — TRANSPORT</span></div>
-        <h2 class="text-5xl md:text-7xl font-bold leading-tight bg-gradient-to-r from-[#fff5cf] to-[#aaf0c5] bg-clip-text text-transparent">LOGISTICS & HAULAGE</h2>
-        <p class="text-gray-200 text-xl md:text-2xl mt-5 max-w-xl">Reliable fleet of trucks, vans, and cold chain. We move your goods safely, on time, across the region.</p>
-        <div class="mt-8 flex gap-4">
-          <span class="px-6 py-3 bg-black/30 backdrop-blur-sm rounded-full border border-[#59d186]">cold chain</span>
-          <span class="px-6 py-3 bg-black/30 backdrop-blur-sm rounded-full border border-[#59d186]">heavy equipment</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. GENERAL SUPPLY OF MERCHANDISE -->
-  <section class="relative w-full h-[90vh] flex items-center border-t border-[#297a4d]/40">
-    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?q=80&w=2072&auto=format&fit=crop'); filter: brightness(0.45);"></div>
-    <div class="absolute inset-0 bg-gradient-to-l from-[#062211] via-transparent to-[#0d341c]"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-8 w-full text-right">
-      <div class="md:w-2/3 ml-auto">
-        <div class="flex items-center justify-end gap-3 text-[#a0f0c0] text-xl mb-2"><span class="tracking-[0.3em]">04 — GENERAL SUPPLY</span><i class="fa-solid fa-boxes-packing text-3xl"></i></div>
-        <h2 class="text-5xl md:text-7xl font-bold leading-tight bg-gradient-to-l from-[#d0ffcf] to-[#92eea0] bg-clip-text text-transparent">WHOLESALE & RETAIL</h2>
-        <p class="text-gray-200 text-xl md:text-2xl mt-5 max-w-xl ml-auto">From office supplies to industrial materials, we source and deliver a vast range of merchandise with competitive pricing.</p>
-        <div class="mt-8 flex gap-4 justify-end">
-          <span class="px-6 py-3 bg-black/30 backdrop-blur-sm rounded-full border border-[#59d186]">bulk order</span>
-          <span class="px-6 py-3 bg-black/30 backdrop-blur-sm rounded-full border border-[#59d186]">strategic sourcing</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. GENERAL BUILDING & CIVIL CONSTRUCTION -->
-  <section class="relative w-full h-[90vh] flex items-center border-t border-[#297a4d]/40">
-    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1541976590-713941681591?q=80&w=2069&auto=format&fit=crop'); filter: brightness(0.4);"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-[#091f12] via-[#1a4029]/60 to-[#0a2f18]"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-8 w-full">
-      <div class="md:w-2/3">
-        <div class="flex items-center gap-3 text-[#a0f0c0] text-xl mb-2"><i class="fa-solid fa-helmet-safety text-3xl"></i><span class="tracking-[0.3em]">05 — BUILDING & CIVIL</span></div>
-        <h2 class="text-5xl md:text-7xl font-bold leading-tight bg-gradient-to-r from-[#f5ffcf] to-[#b4ffca] bg-clip-text text-transparent">INFRASTRUCTURE & BEYOND</h2>
-        <p class="text-gray-200 text-xl md:text-2xl mt-5 max-w-xl">Construction, renovation, roadworks, and project management. We build the foundations of tomorrow, today.</p>
-        <div class="mt-8 flex gap-4">
-          <span class="px-6 py-3 bg-black/30 backdrop-blur-sm rounded-full border border-[#59d186]">civil engineering</span>
-          <span class="px-6 py-3 bg-black/30 backdrop-blur-sm rounded-full border border-[#59d186]">residential & commercial</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STATS / TRUST (unique gradient section) -->
-  <section class="py-28 bg-gradient-to-b from-[#0a261a] to-[#123b22] relative overflow-hidden">
-    <div class="absolute inset-0 opacity-20" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cGF0aCBkPSJNMzAgMTBhMjAgMjAgMCAwIDEgMjAgMjAgMjAgMjAgMCAwIDEtNDAgMCAyMCAyMCAwIDAgMSAyMC0yMHoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzJmYzY3ZSIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48L3N2Zz4='); background-repeat: repeat; opacity: 0.3;"></div>
-    <div class="relative z-10 max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-      <div class="stat-card p-8 rounded-3xl text-center"><div class="text-5xl font-black text-[#a0f7c0]">150+</div><div class="text-xl mt-2">projects yearly</div></div>
-      <div class="stat-card p-8 rounded-3xl text-center"><div class="text-5xl font-black text-[#a0f7c0]">24/7</div><div class="text-xl mt-2">operations</div></div>
-      <div class="stat-card p-8 rounded-3xl text-center"><div class="text-5xl font-black text-[#a0f7c0]">100%</div><div class="text-xl mt-2">eco‑conscious</div></div>
-      <div class="stat-card p-8 rounded-3xl text-center"><div class="text-5xl font-black text-[#a0f7c0]">5★</div><div class="text-xl mt-2">client rating</div></div>
-    </div>
-  </section>
-
-  <!-- ABOUT / MISSION with subtle background -->
-  <section id="about" class="py-28 px-6 bg-[#102f1d] relative">
-    <div class="max-w-6xl mx-auto relative z-10">
-      <div class="flex flex-col md:flex-row gap-16 items-center">
-        <div class="md:w-1/2">
-          <div class="gradient-border p-1 inline-block rounded-3xl">
-            <div class="bg-[#0d2a19] p-8 rounded-3xl">
-              <i class="fa-regular fa-compass text-7xl text-[#9affb8] mb-4"></i>
-              <h3 class="text-3xl font-bold bg-gradient-to-r from-[#d6ffd6] to-[#80eea0] bg-clip-text text-transparent">one group, many solutions</h3>
-              <p class="text-gray-300 text-lg mt-5 leading-relaxed">Eboile Trading was founded to bridge gaps in catering, cleaning, logistics, supply, and construction. We combine local insight with international standards. Every service hero backs our promise: reliability, integrity, and sustainable growth.</p>
-            </div>
-          </div>
-        </div>
-        <div class="md:w-1/2 space-y-7">
-          <div class="flex gap-5 items-start">
-            <i class="fa-solid fa-circle-check text-3xl text-[#3fe88e]"></i>
-            <div><span class="text-2xl font-semibold">certified & insured</span><p class="text-gray-400">Full licensing for all verticals.</p></div>
-          </div>
-          <div class="flex gap-5 items-start">
-            <i class="fa-solid fa-circle-check text-3xl text-[#3fe88e]"></i>
-            <div><span class="text-2xl font-semibold">1,200+ clients</span><p class="text-gray-400">From embassies to local businesses.</p></div>
-          </div>
-          <div class="flex gap-5 items-start">
-            <i class="fa-solid fa-circle-check text-3xl text-[#3fe88e]"></i>
-            <div><span class="text-2xl font-semibold">green ethos</span><p class="text-gray-400">Solar‑powered warehouses, zero‑waste catering.</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT / BOLD GRADIENT BANNER -->
-  <section id="contact" class="relative py-24 bg-[#0e2b1b] overflow-hidden">
-    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=2069&auto=format&fit=crop')] bg-cover bg-center opacity-20"></div>
-    <div class="relative z-10 max-w-4xl mx-auto text-center px-6">
-      <h2 class="text-5xl md:text-7xl font-black uppercase bg-gradient-to-r from-[#e3ffe6] to-[#88f0ac] bg-clip-text text-transparent">let’s work together</h2>
-      <p class="text-xl mt-6 text-[#e2ffe6]">Reach out for a tailored solution – any industry, any scale.</p>
-      <div class="mt-12 flex flex-wrap justify-center gap-8 text-2xl">
-        <div class="flex items-center gap-3 bg-black/30 px-8 py-4 rounded-full border border-[#59d186]"><i class="fa-regular fa-envelope text-[#a0f7b0]"></i> info@eboile.trading</div>
-        <div class="flex items-center gap-3 bg-black/30 px-8 py-4 rounded-full border border-[#59d186]"><i class="fa-solid fa-phone text-[#a0f7b0]"></i> +254 (0) 700 123 456</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER with dynamic gradient line -->
-  <footer class="bg-[#07190e] py-16 border-t border-[#2d7447]">
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10">
-      <div>
-        <span class="text-4xl font-black bg-gradient-to-r from-[#baffd4] to-[#4edb80] bg-clip-text text-transparent">EBOILE</span>
-        <p class="text-sm text-gray-400 mt-4">© 2025 — multi‑service trading. outstanding quality.</p>
-      </div>
-      <div>
-        <h4 class="text-xl font-bold text-[#b3f7c9]">services</h4>
-        <ul class="mt-4 space-y-2 text-gray-400"><li>Catering</li><li>Cleaning</li><li>Transport</li><li>General supply</li><li>Building & civil</li></ul>
-      </div>
-      <div>
-        <h4 class="text-xl font-bold text-[#b3f7c9]">social</h4>
-        <div class="flex gap-5 mt-5 text-2xl">
-          <i class="fa-brands fa-facebook hover:text-[#7fe0a8]"></i>
-          <i class="fa-brands fa-x-twitter hover:text-[#7fe0a8]"></i>
-          <i class="fa-brands fa-instagram hover:text-[#7fe0a8]"></i>
-          <i class="fa-brands fa-linkedin hover:text-[#7fe0a8]"></i>
-        </div>
-      </div>
-      <div>
-        <h4 class="text-xl font-bold text-[#b3f7c9]">location</h4>
-        <p class="mt-4 text-gray-400"><i class="fa-regular fa-building mr-2"></i>Nairobi / Mombasa<br>East Africa Hub</p>
-      </div>
-    </div>
-  </footer>
-</body>
-</html><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -1325,14 +1077,14 @@
           <div class="ci"><i class="fa-regular fa-envelope"></i></div>
           <div class="ct">
             <strong>Email us</strong>
-            <span>info@eboile.trading</span>
+            <span>tshiamisodijong5@gmail.com</span>
           </div>
         </a>
         <a href="tel:+254700123456" class="contact-card">
           <div class="ci"><i class="fa-solid fa-phone"></i></div>
           <div class="ct">
             <strong>Call us</strong>
-            <span>+254 (0) 700 123 456</span>
+            <span>078 299 3246</span>
           </div>
         </a>
         <a href="#" class="contact-card">
@@ -1382,8 +1134,8 @@
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <li>info@eboile.trading</li>
-          <li>+254 (0) 700 123 456</li>
+          <li>tshiamisodijong5@gmail.com</li>
+          <li>078 299 3246</li>
           <li>Nairobi, Kenya</li>
           <li>Mombasa, Kenya</li>
         </ul>
